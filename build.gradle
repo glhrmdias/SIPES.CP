@@ -1,0 +1,25 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'com.itextpdf:itextpdf:5.5.1'
+    compile 'org.postgresql:postgresql:9.4-1203-jdbc42'
+    compile 'org.controlsfx:controlsfx:8.40.14'
+    compile group: 'org.mindrot', name: 'jbcrypt', version: '0.4'
+
+}
+
+mainClassName = 'view.Main'
+
+jar {
+    manifest {
+        attributes 'Main-Class': mainClassName
+    }
+}
+
+compileJava.options.encoding = 'UTF-8'
+
