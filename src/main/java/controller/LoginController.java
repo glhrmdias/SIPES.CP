@@ -18,7 +18,7 @@ import java.io.IOException;
 public class LoginController {
 
     private Usuario loggedUser;
-    public PrincipalController pc;
+    private PrincipalController pc;
     public LoginController loginController;
     private Usuario usuario;
     BD bd = new BD();
@@ -48,7 +48,7 @@ public class LoginController {
             } else {
                 try {
                     setLoggedUser(usuario);
-                    System.out.println(getLoggedUser().getNome() + "\n" + getLoggedUser().getMatricula());
+                    System.out.println(getLoggedUser().getNome() + "\n" + getLoggedUser().getSetor());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -101,6 +101,12 @@ public class LoginController {
 
         PrincipalController principalController = loader.getController();
         principalController.setPrincipalController(this);
+
+        principalController.usuarioLabel.setText(getLoggedUser().getNome());
+        principalController.getUserLogged(getLoggedUser());
+        //principalController.usrLogin.setSetor(getLoggedUser().getSetor());
+        principalController.usrLogin = getLoggedUser();
+
         startStage.setTitle("Cadastrar Atividade");
         startStage.setScene(new Scene(loader.getRoot()));
         startStage.setMaximized(true);
@@ -120,8 +126,8 @@ public class LoginController {
         principalStage.setMaximized(true);
         principalStage.show();
         acessarButton.getScene().getWindow().hide();
-        System.out.println(getLoggedUser().getNome());
-        System.out.println(getLoggedUser().getSetor().toString());
+        /*System.out.println(getLoggedUser().getNome());
+        System.out.println(getLoggedUser().getSetor().toString());*/
     }
 
     public Usuario getLoggedUser() {

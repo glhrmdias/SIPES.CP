@@ -17,6 +17,15 @@ public class Movimentacao {
     public String horaFim;
     public String conclusao;
     public String obervação;
+    public String usuario;
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
 
     public String getProcesso() {
         return processo;
@@ -121,4 +130,6 @@ public class Movimentacao {
     public void setObervação(String obervação) {
         this.obervação = obervação;
     }
+
+
 }

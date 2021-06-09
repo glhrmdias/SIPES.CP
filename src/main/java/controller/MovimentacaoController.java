@@ -10,13 +10,21 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.*;
 
+import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class MovimentacaoController {
     BD bd = new BD();
+
+    public Usuario usuario;
 
     private Movimentacao movimentacao;
 
@@ -49,11 +57,15 @@ public class MovimentacaoController {
     public CheckBox processoCheckBox;
 
     @FXML
-    public TextField processoTextField, observacaoTextField;
+    public TextField processoTextField, observacaoTextField, usrTextField;
+
+
 
 
     @FXML
     public void initialize() {
+        dataRefDatePicker.setValue(LocalDate.now());
+
         orgaoComboBox.setItems(orgaos);
         orgaos.addAll(bd.getOrgao());
 
@@ -65,7 +77,20 @@ public class MovimentacaoController {
 
         atividadeComboBox.setItems(atividades);
         definirAssunto();
+
+        processoCheckBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue) {
+                processoTextField.setDisable(false);
+            } else {
+                processoTextField.setDisable(true);
+                processoTextField.setText("");
+            }
+        });
+
     }
+
+
+
 
     /*ObservableList<String> atividades = FXCollections.observableArrayList(
             "DIAD", "DJUR"
@@ -117,6 +142,7 @@ public class MovimentacaoController {
     @FXML
     public void cadastrar() {
 
+
         if (!validarDados()) {
             exibirMensagem("Existem campos em branco, por favor, preencher todos os campos!");
             return;
@@ -129,6 +155,7 @@ public class MovimentacaoController {
             editando = false;
         }
 
+        movimentacao.setSetor(setorComboBox.getValue());
         movimentacao.setDataRegistro(dataRefDatePicker.getValue());
         movimentacao.setAtividade(atividadeComboBox.getValue());
         movimentacao.setAssunto(assuntoComboBox.getValue());
@@ -141,6 +168,7 @@ public class MovimentacaoController {
         movimentacao.setHoraFim(horaFimComboBox.getValue());
         movimentacao.setConclusao(conclusaoComboBox.getValue());
         movimentacao.setObervação(observacaoTextField.getText());
+        movimentacao.setUsuario(usrTextField.getText());
 
         if (editando == false){
             principalController.adicionarMovimentacao(movimentacao);

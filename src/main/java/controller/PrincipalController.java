@@ -24,6 +24,8 @@ public class PrincipalController {
     public Main main = new Main();
     public Usuario usuario = new Usuario();
 
+    public Usuario usrLogin;
+
     private SetorDAO setorDAO = new SetorDAO();
     private UsuarioDAO usuarioDAO = new UsuarioDAO();
     private MovimentacaoDAO movimentacaoDAO = new MovimentacaoDAO();
@@ -60,7 +62,14 @@ public class PrincipalController {
         numeracaoTableColumn.setMinWidth(35);
 
 
+
     }
+
+    public void getUserLogged (Usuario usr) {
+        usuario = usr;
+        System.out.println("Matrícula:" + usuario.getMatricula());
+    }
+
 
     @FXML
     public void cadastrarUsuario() throws IOException {
@@ -127,6 +136,9 @@ public class PrincipalController {
 
         MovimentacaoController movimentacaoController = loader.getController();
         movimentacaoController.setPrincipalController(this);
+        movimentacaoController.setorComboBox.setValue(usrLogin.getSetor());
+        movimentacaoController.usrTextField.setText(usrLogin.getNome());
+
         setorStage.setTitle("Cadastrar Atividade");
         setorStage.setScene(new Scene(root));
         setorStage.setResizable(false);

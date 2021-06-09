@@ -10,7 +10,7 @@ public class MovimentacaoDAO {
         Conexao con = new Conexao();
 
         String sql = "INSERT into movimentacao (dt_registro, setor_id, atividade, assunto," +
-                "processo, orgao_id, local_id, dt_inicio, dt_fim, hr_inicio, hr_fim, conclusao, observacao)"
+                "processo, orgao_id, local_id, dt_inicio, dt_fim, hr_inicio, hr_fim, conclusao, observacao, usuario)"
                 + " VALUES('"
                 + movimentacao.getDataRegistro()
                 + "', '" + movimentacao.getSetor().getId()
@@ -25,6 +25,7 @@ public class MovimentacaoDAO {
                 + "', '" + movimentacao.getHoraFim()
                 + "', '" + movimentacao.getConclusao()
                 + "', '" + movimentacao.getObervação()
+                + "', '" + movimentacao.getUsuario()
                 + "');";
 
         System.out.println(sql);

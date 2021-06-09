@@ -9,38 +9,40 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Region?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="583.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MovimentacaoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="641.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MovimentacaoController">
    <children>
       <Region layoutX="61.0" layoutY="14.0" prefHeight="67.0" prefWidth="487.0" style="-fx-border-color: #dcdde1;" />
       <Label layoutX="235.0" layoutY="39.0" text="Cadastro de Atividades" />
       <Label layoutX="329.0" layoutY="104.0" text="Data" />
-      <DatePicker fx:id="dataRefDatePicker" layoutX="373.0" layoutY="100.0" />
+      <DatePicker fx:id="dataRefDatePicker" disable="true" layoutX="373.0" layoutY="100.0" />
+      <TextField fx:id="usrTextField" disable="true" editable="false" layoutX="136.0" layoutY="140.0" prefHeight="25.0" prefWidth="412.0" />
       <Label layoutX="60.0" layoutY="104.0" text="Setor" />
-      <ComboBox fx:id="setorComboBox" layoutX="99.0" layoutY="100.0" prefHeight="25.0" prefWidth="174.0" />
-      <Label layoutX="60.0" layoutY="152.0" text="Atividade" />
-      <ComboBox fx:id="atividadeComboBox" layoutX="123.0" layoutY="148.0" prefHeight="25.0" prefWidth="424.0" />
-      <Label layoutX="60.0" layoutY="190.0" text="Assunto" />
-      <ComboBox fx:id="assuntoComboBox" layoutX="123.0" layoutY="186.0" prefHeight="25.0" prefWidth="424.0" />
-      <Label layoutX="60.0" layoutY="230.0" text="Nº do Processo" />
-      <TextField fx:id="processoTextField" layoutX="155.0" layoutY="226.0" prefHeight="25.0" prefWidth="225.0" />
-      <CheckBox fx:id="processoCheckBox" layoutX="436.0" layoutY="230.0" mnemonicParsing="false" text="Possuí processo?" />
-      <Label layoutX="60.0" layoutY="269.0" text="Sec./Órgão" />
-      <ComboBox fx:id="orgaoComboBox" layoutX="123.0" layoutY="265.0" prefHeight="25.0" prefWidth="424.0" />
-      <Label layoutX="60.0" layoutY="309.0" text="Localidade" />
-      <ComboBox fx:id="localidadeComboBox" layoutX="123.0" layoutY="305.0" prefHeight="25.0" prefWidth="424.0" />
-      <Label layoutX="60.0" layoutY="347.0" text="Data início" />
-      <DatePicker fx:id="dataInicioDatePicker" layoutX="122.0" layoutY="343.0" />
-      <Label layoutX="321.0" layoutY="347.0" text="Data fim" />
-      <DatePicker fx:id="dataFimDatePicker" layoutX="373.0" layoutY="343.0" />
-      <Label layoutX="60.0" layoutY="393.0" text="Hora início" />
-      <ComboBox fx:id="horaInicioComboBox" layoutX="134.0" layoutY="389.0" prefHeight="25.0" prefWidth="164.0" />
-      <Label layoutX="328.0" layoutY="393.0" text="Hora fim" />
-      <ComboBox fx:id="horaFimComboBox" layoutX="383.0" layoutY="389.0" prefHeight="25.0" prefWidth="164.0" />
-      <Label layoutX="60.0" layoutY="437.0" text="Conclusão" />
-      <ComboBox fx:id="conclusaoComboBox" layoutX="123.0" layoutY="433.0" prefHeight="25.0" prefWidth="424.0" />
-      <Label layoutX="60.0" layoutY="478.0" text="Observação" />
-      <TextField fx:id="observacaoTextField" layoutX="135.0" layoutY="474.0" prefHeight="25.0" prefWidth="412.0" />
-      <Button fx:id="fecharButton" layoutX="454.0" layoutY="514.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="93.0" text="Fechar" />
-      <Button fx:id="cadastrarButton" layoutX="337.0" layoutY="514.0" mnemonicParsing="false" onAction="#cadastrar" prefHeight="42.0" prefWidth="93.0" text="Cadastrar" />
+      <ComboBox fx:id="setorComboBox" disable="true" layoutX="135.0" layoutY="100.0" prefHeight="25.0" prefWidth="142.0" />
+      <Label layoutX="61.0" layoutY="186.0" text="Atividade" />
+      <ComboBox fx:id="atividadeComboBox" layoutX="136.0" layoutY="182.0" prefHeight="25.0" prefWidth="412.0" />
+      <Label layoutX="61.0" layoutY="224.0" text="Assunto" />
+      <ComboBox fx:id="assuntoComboBox" layoutX="136.0" layoutY="220.0" prefHeight="25.0" prefWidth="412.0" />
+      <Label layoutX="61.0" layoutY="264.0" text="Nº do Processo" />
+      <TextField fx:id="processoTextField" layoutX="156.0" layoutY="260.0" prefHeight="25.0" prefWidth="225.0" />
+      <CheckBox fx:id="processoCheckBox" layoutX="437.0" layoutY="264.0" mnemonicParsing="false" selected="true" text="Possuí processo?" />
+      <Label layoutX="61.0" layoutY="303.0" text="Sec./Órgão" />
+      <ComboBox fx:id="orgaoComboBox" layoutX="135.0" layoutY="299.0" prefHeight="25.0" prefWidth="412.0" />
+      <Label layoutX="61.0" layoutY="343.0" text="Localidade" />
+      <ComboBox fx:id="localidadeComboBox" layoutX="135.0" layoutY="339.0" prefHeight="25.0" prefWidth="412.0" />
+      <Label layoutX="61.0" layoutY="381.0" text="Data início" />
+      <DatePicker fx:id="dataInicioDatePicker" layoutX="135.0" layoutY="377.0" prefHeight="25.0" prefWidth="164.0" />
+      <Label layoutX="322.0" layoutY="381.0" text="Data fim" />
+      <DatePicker fx:id="dataFimDatePicker" layoutX="374.0" layoutY="377.0" />
+      <Label layoutX="61.0" layoutY="427.0" text="Hora início" />
+      <ComboBox fx:id="horaInicioComboBox" layoutX="135.0" layoutY="423.0" prefHeight="25.0" prefWidth="164.0" />
+      <Label layoutX="329.0" layoutY="427.0" text="Hora fim" />
+      <ComboBox fx:id="horaFimComboBox" layoutX="384.0" layoutY="423.0" prefHeight="25.0" prefWidth="164.0" />
+      <Label layoutX="61.0" layoutY="471.0" text="Conclusão" />
+      <ComboBox fx:id="conclusaoComboBox" layoutX="136.0" layoutY="467.0" prefHeight="25.0" prefWidth="412.0" />
+      <Label layoutX="61.0" layoutY="512.0" text="Observação" />
+      <TextField fx:id="observacaoTextField" layoutX="136.0" layoutY="508.0" prefHeight="25.0" prefWidth="412.0" />
+      <Button fx:id="fecharButton" layoutX="455.0" layoutY="548.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="93.0" text="Fechar" />
+      <Button fx:id="cadastrarButton" layoutX="338.0" layoutY="548.0" mnemonicParsing="false" onAction="#cadastrar" prefHeight="42.0" prefWidth="93.0" text="Cadastrar" />
+      <Label layoutX="62.0" layoutY="144.0" text="Usuário" />
    </children>
 </AnchorPane>
