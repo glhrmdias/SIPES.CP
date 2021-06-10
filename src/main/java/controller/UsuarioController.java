@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import model.Setor;
+import model.TipoUsuario;
 import model.Usuario;
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -22,6 +23,7 @@ public class UsuarioController {
     public PrincipalController principalController;
 
     private ObservableList<Setor> setores = FXCollections.observableArrayList();
+    private ObservableList<TipoUsuario> tipos = FXCollections.observableArrayList();
 
     @FXML
     public TextField nomeTextField, matriculaTextField, senhaTextField;
@@ -30,12 +32,17 @@ public class UsuarioController {
     public ComboBox<Setor> setorComboBox;
 
     @FXML
+    public ComboBox<TipoUsuario> tipoComboBox;
+
+    @FXML
     public Button cadastrarButton, fecharButton;
 
     @FXML
     public void initialize() {
         setorComboBox.setItems(setores);
         setores.addAll(bd.getSetor());
+        tipoComboBox.setItems(tipos);
+        tipos.addAll(bd.getTipoUsuario());
 
     }
 
@@ -58,6 +65,7 @@ public class UsuarioController {
         usuario.setSenha(createEncryptedPassword(senhaTextField.getText()));
         usuario.setMatricula(matriculaTextField.getText());
         usuario.setSetor(setorComboBox.getValue());
+        usuario.setTipoUsuario(tipoComboBox.getValue());
 
         if (editando == false){
             principalController.adicionarUsuario(usuario);

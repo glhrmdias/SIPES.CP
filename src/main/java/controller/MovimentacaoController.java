@@ -12,9 +12,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import model.*;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
@@ -59,6 +62,26 @@ public class MovimentacaoController {
     @FXML
     public TextField processoTextField, observacaoTextField, usrTextField;
 
+    public void setMovimentacao(Movimentacao movimentacao) {
+        this.movimentacao = movimentacao;
+        preMovimentacao();
+    }
+
+    public void preMovimentacao() {
+        dataRefDatePicker.setValue(movimentacao.getDataRegistro());
+        usrTextField.setText(movimentacao.getUsuario());
+        atividadeComboBox.setValue(movimentacao.getAtividade());
+        assuntoComboBox.setValue(movimentacao.getAssunto());
+        orgaoComboBox.setValue(movimentacao.getOrgao());
+        processoTextField.setText(movimentacao.getProcesso());
+        localidadeComboBox.setValue(movimentacao.getLocal());
+        dataInicioDatePicker.setValue(movimentacao.getDataInicio());
+        dataFimDatePicker.setValue(movimentacao.getDataFim());
+        horaInicioComboBox.setValue(movimentacao.getHoraInicio());
+        horaFimComboBox.setValue(movimentacao.getHoraFim());
+        conclusaoComboBox.setValue(movimentacao.getConclusao());
+        observacaoTextField.setText(movimentacao.getObervação());
+    }
 
 
 
@@ -87,9 +110,22 @@ public class MovimentacaoController {
             }
         });
 
+        Image cadastrar = new Image(getClass().getResourceAsStream("/verifica.png"));
+        cadastrarButton.setGraphic(new ImageView(cadastrar));
+
+        Image cancelar = new Image(getClass().getResourceAsStream("/cancelar.png"));
+        fecharButton.setGraphic(new ImageView(cancelar));
+
     }
 
+    public void verifyUser(Usuario usr) {
 
+        if (usrTextField.getText() == usr.getNome()) {
+            JOptionPane.showMessageDialog(null, "Você não pode editar uma atividade que pertence a outro usuário");
+        } else {
+            localidadeComboBox.setVisibleRowCount(0);
+        }
+    }
 
 
     /*ObservableList<String> atividades = FXCollections.observableArrayList(
@@ -183,8 +219,6 @@ public class MovimentacaoController {
     }
 
     public boolean validarDados() {
-
-
 
         return true;
     }

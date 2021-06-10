@@ -17,19 +17,20 @@
       <Button fx:id="fecharButton" layoutX="234.0" layoutY="220.0" mnemonicParsing="false" onAction="#fecharJanela" prefHeight="56.0" prefWidth="134.0" styleClass="buttonLogin" text="Fechar" />
       <Button fx:id="acessarButton" layoutX="382.0" layoutY="220.0" mnemonicParsing="false" onAction="#entrar" prefHeight="56.0" prefWidth="134.0" styleClass="buttonLogin" text="Acessar" />
       <Region layoutX="82.0" layoutY="14.0" prefHeight="76.0" prefWidth="432.0" style="-fx-border-color: #dcdde1;" />
-      <Label layoutX="186.0" layoutY="39.0" style="-fx-font-family: Arial;" text="Bem vindo ao SIPES">
+      <Label layoutX="186.0" layoutY="39.0" style="-fx-font-family: Arial;" text="Bem vindo ao SAS">
          <font>
             <Font name="Trebuchet MS" size="24.0" />
          </font>
       </Label>
-      <ImageView layoutX="83.0" layoutY="164.0">
+      <Button fx:id="infoButton" layoutX="83.0" layoutY="232.0" mnemonicParsing="false" onAction="#info" prefHeight="32.0" prefWidth="43.0" />
+      <ImageView layoutX="88.0" layoutY="164.0">
          <image>
-            <Image url="@../../../../../../Downloads/7205445111595501398-32.png" />
+            <Image url="@../senha.png" />
          </image>
       </ImageView>
-      <ImageView layoutX="83.0" layoutY="109.0">
+      <ImageView layoutX="88.0" layoutY="109.0">
          <image>
-            <Image url="@../../../../../../Downloads/17503049231586786427-32.png" />
+            <Image url="@../do-utilizador.png" />
          </image>
       </ImageView>
    </children>

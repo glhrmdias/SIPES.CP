@@ -10,19 +10,25 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/DAO/MovimentacaoDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/DAO/MovimentacaoDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/DAO/BD.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/DAO/BD.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controller/LoginController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/controller/MovimentacaoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controller/MovimentacaoController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/controller/PrincipalController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controller/PrincipalController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/controller/PrincipalController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controller/PrincipalController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/Movimentacao.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/model/Movimentacao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/controller/cadastroMovimentacao.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/controller/cadastroMovimentacao.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/MovimentacaoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/MovimentacaoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/controller/UsuarioController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controller/UsuarioController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/model/Usuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/model/Usuario.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/controller/principal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/controller/principal.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/BD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/BD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/UsuarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/UsuarioDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/MovimentacaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MovimentacaoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/PrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/PrincipalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Movimentacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Movimentacao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/UsuarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Usuario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/controller/cadastroMovimentacao.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/controller/cadastroMovimentacao.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/controller/cadastroUsuario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/controller/cadastroUsuario.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/controller/principal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/controller/principal.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/login.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

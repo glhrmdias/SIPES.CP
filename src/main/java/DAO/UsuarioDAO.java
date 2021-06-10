@@ -8,12 +8,13 @@
 
             Conexao con = new Conexao();
 
-            String sql = "INSERT into usuario (nome, matricula, setor_id, senha)"
+            String sql = "INSERT into usuario (nome, matricula, setor_id, senha, tipo_usuario_id)"
                     + " VALUES('"
                     + usuario.getNome()
                     + "', '" + usuario.getMatricula()
                     + "', '" + usuario.getSetor().getId()
                     + "', '" + usuario.getSenha()
+                    + "', '" + usuario.getTipoUsuario().getId()
                     + "');";
 
             System.out.println(sql);

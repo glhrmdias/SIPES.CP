@@ -6,6 +6,15 @@ public class Usuario {
     public Setor setor;
     public String matricula;
     private String senha;
+    public TipoUsuario tipoUsuario;
+
+    public TipoUsuario getTipoUsuario() {
+        return tipoUsuario;
+    }
+
+    public void setTipoUsuario(TipoUsuario tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
+    }
 
     public String getNome() {
         return nome;

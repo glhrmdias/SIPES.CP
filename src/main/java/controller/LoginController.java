@@ -7,12 +7,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.scene.control.*;
 import model.Usuario;
 import model.UsuarioSingleton;
 import org.mindrot.jbcrypt.BCrypt;
 
+import javax.swing.*;
 import java.io.IOException;
 
 public class LoginController {
@@ -27,16 +30,20 @@ public class LoginController {
     public TextField loginTextField, senhaTextField;
 
     @FXML
-    public Button acessarButton, fecharButton;
+    public Button acessarButton, fecharButton, infoButton;
 
     @FXML
     public void initialize() {
 
+        Image info = new Image(getClass().getResourceAsStream("/info.png"));
+        infoButton.setGraphic(new ImageView(info));
     }
 
     @FXML
     public void entrar() {
         usuario = bd.getUsuarioMatricula(loginTextField.getText());
+
+
         System.out.println(usuario);
 
         if (loginTextField.getText() == null && senhaTextField.getText() == null) {
@@ -56,6 +63,15 @@ public class LoginController {
         } else {
             msgLoginIncs();
         }
+    }
+
+    @FXML
+    public void info() {
+        JOptionPane.showMessageDialog(null,
+                "Bem vindo ao SAS - Sistema de Atividades dos Servidores\n"
+                        + "Não possui usuário? Entre em contato com a GETIG.\n"
+                        + "Contato: Guilherme - (48) 3665-9933\n"
+                        + "Sistema desenvolvido por: Guilherme Humberto Dias");
     }
 
     public void msgLoginNull() {
@@ -106,6 +122,17 @@ public class LoginController {
         principalController.getUserLogged(getLoggedUser());
         //principalController.usrLogin.setSetor(getLoggedUser().getSetor());
         principalController.usrLogin = getLoggedUser();
+
+        if (getLoggedUser().getTipoUsuario().getId() == 1) {
+            principalController.cadastrarMenu.setVisible(true);
+            principalController.editarMenu.setVisible(true);
+        } else if (getLoggedUser().getTipoUsuario().getId() == 2) {
+            principalController.cadastrarMenu.setVisible(false);
+            principalController.editarMenu.setVisible(false);
+        }
+
+        //principalController.attTable(getLoggedUser().getSetor());
+        principalController.attTable(getLoggedUser());
 
         startStage.setTitle("Cadastrar Atividade");
         startStage.setScene(new Scene(loader.getRoot()));
