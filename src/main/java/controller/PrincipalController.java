@@ -4,7 +4,12 @@ import DAO.BD;
 import DAO.MovimentacaoDAO;
 import DAO.SetorDAO;
 import DAO.UsuarioDAO;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,11 +20,13 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.*;
 import org.w3c.dom.html.HTMLBaseElement;
 import view.Main;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -28,6 +35,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Observable;
 
 public class PrincipalController {
 
@@ -45,6 +53,8 @@ public class PrincipalController {
 
     String usr = usuario.getNome();
 
+    @FXML
+    public VBox mainPane;
     @FXML
     public  Label usuarioLabel, horaLabel;
 
@@ -74,10 +84,16 @@ public class PrincipalController {
     public TableColumn<Movimentacao, Setor> setorTableColumn;
 
     @FXML
-    public Menu cadastrarMenu, editarMenu;
+    public Menu cadastrarMenu, editarMenu, sistemaMenu;
+
+    @FXML
+    public MenuItem sobreMenuItem, trocarMenuItem;
 
     @FXML
     public Button cadastrarButton, excluirButton;
+
+    @FXML
+    public TextField filtroTextField;
 
     public DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/YYYY");
 
@@ -86,6 +102,8 @@ public class PrincipalController {
 
     public LocalDateTime dataAtual = LocalDateTime.now();
     public Date horaAtual = new Date();
+
+    public Stage stage = new Stage();
 
     @FXML
     public void initialize() {
@@ -154,8 +172,109 @@ public class PrincipalController {
 
         doubleClickSap();
 
+        trocarUsuario();
 
 
+
+    }
+
+    private ObservableList<Movimentacao> movimentacaoList = FXCollections.observableArrayList();
+
+    public void filterTable() {
+        FilteredList<Movimentacao> filteredList = new FilteredList<Movimentacao>(movimentacaoList, b -> true);
+
+        filtroTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredList.setPredicate(movimentacao -> {
+
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+
+                String lowerCaseFilter = newValue.toLowerCase();
+
+                if (movimentacao.getUsuario().toLowerCase().indexOf(lowerCaseFilter) != -1){
+                    return true;
+                }
+
+                if (movimentacao.getSetor().getNome().indexOf(lowerCaseFilter) != -1){
+                    return true;
+                }
+
+                if (movimentacao.getAtividade().toLowerCase().indexOf(lowerCaseFilter) != -1){
+                    return true;
+                }
+
+                if (movimentacao.getAssunto().toLowerCase().indexOf(lowerCaseFilter) != -1){
+                    return true;
+                }
+
+                if (movimentacao.getUsuario().toLowerCase().indexOf(lowerCaseFilter) != -1){
+                    return true;
+                }
+
+                if (movimentacao.getOrgao().getOrgao().indexOf(lowerCaseFilter) != -1){
+                    return true;
+                }
+
+                if (movimentacao.getLocal().getLocalidade().indexOf(lowerCaseFilter) != -1){
+                    return true;
+                }
+
+                if (movimentacao.getDataInicio().toString().indexOf(lowerCaseFilter) != -1){
+                    return true;
+                }
+
+                if (movimentacao.getDataFim().toString().indexOf(lowerCaseFilter) != -1){
+                    return true;
+                }
+
+                if (movimentacao.getConclusao().toLowerCase().indexOf(lowerCaseFilter) != -1){
+                    return true;
+                }
+
+                if (movimentacao.getObervação().toLowerCase().indexOf(lowerCaseFilter) != -1){
+                    return true;
+                } else {
+                    return false;
+                }
+
+            });
+
+        });
+
+        SortedList<Movimentacao> sortedList = new SortedList<>(filteredList);
+
+        sortedList.comparatorProperty().bind(atividadeTableView.comparatorProperty());
+
+        atividadeTableView.setItems(sortedList);
+
+    }
+
+    @FXML
+    public void about() {
+        JOptionPane.showMessageDialog(null,
+                "Bem vindo ao SAS - Sistema de Atividades dos Servidores\n"
+                        + "Instituto de Previdência do Estado de Santa Catarina - IPREV.\n\n"
+                        + "Sistema desenvolvido pela GETIG - 2021\n"
+                        + "Desenvolvedor: Guilherme Humberto Dias\n"
+        );
+    }
+
+    @FXML
+    public void trocarUsuario() {
+        trocarMenuItem.setOnAction(event -> loginJanela());
+    }
+
+    public void loginJanela() {
+        Stage stg =new Stage();
+        Main main = new Main();
+        try {
+            main.start(stg);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        mainPane.getScene().getWindow().hide();
     }
 
     public void refreshTable() {
@@ -171,6 +290,7 @@ public class PrincipalController {
         List<Movimentacao> movimentacaos = bd.listarMovimentacaoNome(usr.getNome());
         atividadeTableView.getItems().clear();
         atividadeTableView.getItems().addAll(movimentacaos);
+        /*filterTable();*/
     }
 
 

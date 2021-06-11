@@ -43,7 +43,6 @@ public class LoginController {
     public void entrar() {
         usuario = bd.getUsuarioMatricula(loginTextField.getText());
 
-
         System.out.println(usuario);
 
         if (loginTextField.getText() == null && senhaTextField.getText() == null) {

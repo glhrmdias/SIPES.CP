@@ -15,7 +15,7 @@ public class Main extends Application {
     @Override
         public void start(Stage primaryStage) throws Exception {
             Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
-            primaryStage.setTitle("SISTEMA DE PLANO ESTRATÉGICO - SIPES v" + versao);
+            primaryStage.setTitle("Sistema de Atendimento dos Servidores - SAS v" + versao);
             primaryStage.setScene(new Scene(root));
             primaryStage.setMaximized(false);
             primaryStage.setResizable(false);

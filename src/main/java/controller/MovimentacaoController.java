@@ -21,8 +21,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 
 public class MovimentacaoController {
     BD bd = new BD();
@@ -127,6 +130,11 @@ public class MovimentacaoController {
         }
     }
 
+    @FXML
+    public void fecharJanela() {
+        fecharButton.getScene().getWindow().hide();
+    }
+
 
     /*ObservableList<String> atividades = FXCollections.observableArrayList(
             "DIAD", "DJUR"
@@ -178,7 +186,6 @@ public class MovimentacaoController {
     @FXML
     public void cadastrar() {
 
-
         if (!validarDados()) {
             exibirMensagem("Existem campos em branco, por favor, preencher todos os campos!");
             return;
@@ -219,6 +226,14 @@ public class MovimentacaoController {
     }
 
     public boolean validarDados() {
+        long diferenca = ChronoUnit.DAYS.between(dataFimDatePicker.getValue(), dataInicioDatePicker.getValue());
+
+        System.out.println(diferenca);
+
+        if (diferenca > 0) {
+            JOptionPane.showMessageDialog(null, "Data menor que o validado");
+            return false;
+        }
 
         return true;
     }
