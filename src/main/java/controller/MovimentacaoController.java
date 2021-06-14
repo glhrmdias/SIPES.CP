@@ -16,6 +16,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import model.*;
+import util.ComboBoxKeyCompleter;
 
 import javax.swing.*;
 import java.awt.*;
@@ -101,8 +102,7 @@ public class MovimentacaoController {
         horaInicioComboBox.setItems(horario);
         horaFimComboBox.setItems(horario);
 
-        atividadeComboBox.setItems(atividades);
-        definirAssunto();
+        /*definirAssunto();*/
 
         processoCheckBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue) {
@@ -118,6 +118,10 @@ public class MovimentacaoController {
 
         Image cancelar = new Image(getClass().getResourceAsStream("/cancelar.png"));
         fecharButton.setGraphic(new ImageView(cancelar));
+
+        ComboBoxKeyCompleter completer = new ComboBoxKeyCompleter();
+        completer.install(atividadeComboBox);
+        completer.install(assuntoComboBox);
 
     }
 
@@ -135,13 +139,132 @@ public class MovimentacaoController {
         fecharButton.getScene().getWindow().hide();
     }
 
+    // Atividades e Assuntos CORAFI
+    ObservableList<String> atvCoraf = FXCollections.observableArrayList(
+            "APURAÇÃO DE DÉBITOS PREVIDENCIÁRIOS(Contrib. Prev)",
+            "APURAÇÃO DE DÉBITOS PREVIDENCIÁRIOS(Benef. Prev)",
+            "ATENDIMENTO DEMANDA OUTROS SETORES",
+            "AUDITORIA"
+    );
 
-    /*ObservableList<String> atividades = FXCollections.observableArrayList(
-            "DIAD", "DJUR"
-    );*/
+    ObservableList<String> assCorafi1 = FXCollections.observableArrayList(
+            "Licença Sem Remuneração LSR", "À Disposição",
+            "Mandato Eletivo", "Cartorário", "Outros"
+    );
 
-    ObservableList<String> atividades = FXCollections.observableArrayList(
-            "Emitir Certidão Daniel", "Emitir Certidão Nivea"
+    ObservableList<String> assCorafi2 = FXCollections.observableArrayList(
+            "Resíduos de Aposentadoria", "Resíduos de Pensão",
+            "Pensões Irregulares", "Outros"
+    );
+
+    ObservableList<String> assCorafi3 = FXCollections.observableArrayList(
+            "Averiguação de débitos de contribuição previdenciária",
+            "Averiguação de débitos de contribuição previdenciária de instituidores de pensão e pensionistas",
+            "Suspender/cancelar/sobrestar cobrança administrativa de contribuição previdenciária por decisão judicial",
+            "Proceder Busca em Cartórios por Bens de Notificados",
+            "Proceder Busca de endereços de Notificados",
+            "Responder Diligências do TCE/SC",
+            "Outros"
+    );
+
+    ObservableList<String> assCorafi4 = FXCollections.observableArrayList(
+            "Auditoria em Benefícios Previdenciários(Aposentadoria)",
+            "Auditoria em Benefícios Previdenciários(Pensão)",
+            "Auditoria em Contribuições Previdenciárias(Servidor)",
+            "Auditoria em Contribuições Previdenciárias(Patronal)"
+    );
+
+    public void corafi() {
+        atividadeComboBox.setItems(atvCoraf);
+        conclusaoComboBox.setItems(conclusao);
+
+        atividadeComboBox.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue == "APURAÇÃO DE DÉBITOS PREVIDENCIÁRIOS(Contrib. Prev)"){
+                assuntoComboBox.setItems(assCorafi1);
+            } else if (newValue == "APURAÇÃO DE DÉBITOS PREVIDENCIÁRIOS(Benef. Prev)") {
+                assuntoComboBox.setItems(assCorafi2);
+            } else if (newValue == "ATENDIMENTO DEMANDA OUTROS SETORES") {
+                assuntoComboBox.setItems(assCorafi3);
+            } else if (newValue == "AUDITORIA") {
+                assuntoComboBox.setItems(assCorafi4);
+            }
+        });
+    }
+
+
+    // Atividades e assuntos GECOMP
+    ObservableList<String> atvGecomp = FXCollections.observableArrayList(
+            "ANALISE DE COMP. (RO) IPREV--->RGPS/INSS",
+            "ANALISE DE COMP. (RO) IPREV SOLICITANTE RGPS/INSS",
+            "ANALISE DE COMP.(RO) DAS PENSÕES",
+            "ANALISE DE COMP. (RI) SENDO O INSS SOLICITANTE",
+            "CORREÇÃO DOS FORMULÁRIOS DE ANALISE(SIST. ANTIGO)",
+            "DIGITALIZAÇÃO DE DOC. FÍSICOS AOS ANALISTAS E PERITOS DO COMPREV",
+            "EMISSÃO DE RELATÓRIOS",
+            "REGISTRO DE ANÁLISE DE DEMANDAS(SIST. RAFAEL)",
+            "ANALISE DAS APOSENT. POR INVALIDEZ POR MÉDICO PERITO NO SISTEMA COMPREV.",
+            "ANALISE DE PENSÃO FILHO MAIOR INVÁLIDO POR MÉDICO PERITO NO SISTEMA COMPREV"
+    );
+
+    ObservableList<String> assGecomp1 = FXCollections.observableArrayList(
+            "Registro de análise e cadastro de demandas(IPREV--->RGPS/INSS)",
+            "AConfecção de documentos(DPT e Certidões Específicas)(IPREV--->RGPS/INSS)",
+            "Diligencia para setorial(IPREV--->RGPS/INSS)",
+            "Requerimento no COMPREV e envio das imagens de documentos(IPREV--->RGPS/INSS)",
+            "Cadastro de DTC no COMPREV(IPREV--->RGPS/INSS)",
+            "Solicitação de processo ou documento ao setorial(IPREV--->RGPS/INSS)",
+            "Encaminhamento de laudo médico das aposent. por invalidez aos peritos(IPREV--->RGPS/INSS)"
+    );
+
+    ObservableList<String> assGecomp2 = FXCollections.observableArrayList(
+            "Registro de análise e cadastro de demandas(IPREV--->RPPS)",
+            "Confecção de documentos(DPT e Certidões Específicas)(IPREV--->RPPS)",
+            "Diligencia para setorial(IPREV--->RPPS)",
+            "Requerimento no COMPREV e envio das imagens de documentos(IPREV--->RPPS)",
+            "Respostas de diligencias ao COMPREV(IPREV--->RPPS)",
+            "Cadastro de DTC no COMPREV(IPREV--->RPPS)",
+            "Solicitação de processo ou documento ao setorial(IPREV--->RPPS)",
+            "Encaminhamento de laudo médico das aposent. por invalidez aos peritos(IPREV--->RPPS)"
+    );
+
+    public void gecomp() {
+        atividadeComboBox.setItems(atvGecomp);
+        conclusaoComboBox.setItems(conclusao);
+
+        atividadeComboBox.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue == "ANALISE DE COMP. (RO) IPREV--->RGPS/INSS"){
+                assuntoComboBox.setItems(assGecomp1);
+            } else if (newValue == "ANALISE DE COMP. (RO) IPREV SOLICITANTE RGPS/INSS") {
+                assuntoComboBox.setItems(assGecomp2);
+            } else if (newValue == "ANALISE DE COMP.(RO) DAS PENSÕES") {
+
+            } else if (newValue == "ANALISE DE COMP. (RI) SENDO O INSS SOLICITANTE") {
+
+            } else if (newValue == "CORREÇÃO DOS FORMULÁRIOS DE ANALISE(SIST. ANTIGO)") {
+
+            } else if (newValue == "DIGITALIZAÇÃO DE DOC. FÍSICOS AOS ANALISTAS E PERITOS DO COMPREV") {
+
+            } else if (newValue == "EMISSÃO DE RELATÓRIOS") {
+
+            } else if (newValue == "REGISTRO DE ANÁLISE DE DEMANDAS(SIST. RAFAEL)") {
+
+            } else if (newValue == "ANALISE DAS APOSENT. POR INVALIDEZ POR MÉDICO PERITO NO SISTEMA COMPREV.") {
+
+            } else if (newValue == "ANALISE DE PENSÃO FILHO MAIOR INVÁLIDO POR MÉDICO PERITO NO SISTEMA COMPREV") {
+
+            }
+        });
+    }
+
+
+    ObservableList<String> atvGetig = FXCollections.observableArrayList(
+            "Arrumar computador",
+            "Arrumar monitor"
+    );
+
+    ObservableList<String> assGetig = FXCollections.observableArrayList(
+            "Software",
+            "Hardware"
     );
 
     ObservableList<String> daniel = FXCollections.observableArrayList(
@@ -156,10 +279,6 @@ public class MovimentacaoController {
             "GEPES", "GERIN"
     );
 
-    ObservableList<String> conclusao = FXCollections.observableArrayList(
-            "Pronto", "Não finalizado"
-    );
-
     ObservableList<String> conclusao2 = FXCollections.observableArrayList(
             "Pronto 2", "Não finalizado 2"
     );
@@ -168,9 +287,22 @@ public class MovimentacaoController {
             "08:00", "09:00"
     );
 
-    public void definirAssunto() {
+    ObservableList<String> conclusao = FXCollections.observableArrayList(
+            "Deferido", "Suspenso", "Diligenciado", "Parecer jurídico", "Aguardando análise",
+            "Aguardando compensação", "Compensado", "Criado", "Em análise", "Indeferido", "Incluído",
+            "Alterado", "Bloqueado", "Encaminhado", "Emitido"
+    );
 
-        atividadeComboBox.valueProperty().addListener((obs, oldValue, newValue) -> {
+    public void getig() {
+        atividadeComboBox.setItems(atvGetig);
+        assuntoComboBox.setItems(assGetig);
+    }
+
+    public void definirAssunto(Usuario usuario) {
+         // o sistema vai pegar o usuario que está logado e vai ver qual o setor ele pertence
+         // conforme o setor que o usuário pertencer, vai definir as atividades e os assuntos
+
+        /*atividadeComboBox.valueProperty().addListener((obs, oldValue, newValue) -> {
             if (newValue == "Emitir Certidão Daniel") {
                 assuntoComboBox.getItems().clear();
                 assuntoComboBox.setItems(daniel);
@@ -180,14 +312,14 @@ public class MovimentacaoController {
                 assuntoComboBox.setItems(nivea);
                 conclusaoComboBox.setItems(conclusao2);
             }
-        });
+        });*/
     }
 
     @FXML
     public void cadastrar() {
 
         if (!validarDados()) {
-            exibirMensagem("Existem campos em branco, por favor, preencher todos os campos!");
+            //exibirMensagem("Existem campos em branco, por favor, preencher todos os campos!");
             return;
         }
 
@@ -232,6 +364,16 @@ public class MovimentacaoController {
 
         if (diferenca > 0) {
             JOptionPane.showMessageDialog(null, "Data menor que o validado");
+            return false;
+        }
+
+        if (setorComboBox.getValue() == null) {
+            JOptionPane.showMessageDialog(null, "Setor em branco!");
+            return false;
+        }
+
+        if (assuntoComboBox.getValue() == null) {
+            JOptionPane.showMessageDialog(null, "Setor em branco!");
             return false;
         }
 

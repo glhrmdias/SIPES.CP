@@ -371,6 +371,14 @@ public class PrincipalController {
         movimentacaoController.setorComboBox.setValue(usrLogin.getSetor());
         movimentacaoController.usrTextField.setText(usrLogin.getNome());
 
+        if (usrLogin.getSetor().getId()==7){
+            movimentacaoController.corafi();
+        } else if (usrLogin.getSetor().getId()==1){
+            movimentacaoController.getig();
+        } else if (usrLogin.getSetor().getId()==8) {
+            movimentacaoController.gecomp();
+        }
+
         setorStage.setTitle("Cadastrar Atividade");
         setorStage.setScene(new Scene(root));
         setorStage.setResizable(false);
