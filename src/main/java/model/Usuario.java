@@ -2,11 +2,20 @@ package model;
 
 public class Usuario {
 
+    public int id;
     public String nome;
     public Setor setor;
     public String matricula;
     private String senha;
     public TipoUsuario tipoUsuario;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public TipoUsuario getTipoUsuario() {
         return tipoUsuario;
@@ -49,4 +58,8 @@ public class Usuario {
         this.senha = senha;
     }
 
+    /*@Override
+    public String toString() {
+        return nome;
+    }*/
 }

@@ -122,6 +122,9 @@ public class MovimentacaoController {
         ComboBoxKeyCompleter completer = new ComboBoxKeyCompleter();
         completer.install(atividadeComboBox);
         completer.install(assuntoComboBox);
+        completer.install(conclusaoComboBox);
+        completer.install(localidadeComboBox);
+        completer.install(orgaoComboBox);
 
     }
 
@@ -227,6 +230,32 @@ public class MovimentacaoController {
             "Encaminhamento de laudo médico das aposent. por invalidez aos peritos(IPREV--->RPPS)"
     );
 
+    ObservableList<String> assGecomp3 = FXCollections.observableArrayList(
+            "Requerimento comp.(RO) pensão",
+            "Envios de documentos comp.(RO) pensão",
+            "Acompanhamento e cadastro de DCB comp(RO) Pensão",
+            "Disponibilização de laudos mádicos filho maior invalido e dependentes"
+    );
+
+    ObservableList<String> assGecomp4 = FXCollections.observableArrayList(
+            "Registro no COMPREV(Deferimento) ",
+            "Registro no COMPREV(Indeferimento) ",
+            "Registro no COMPREV(Exigências)",
+            "Registro no COMPREV(Suspensão de Analise)",
+            "Solicitação de informações ao setorial do ex-servidor",
+            "Solicitação de ficha financeira a SEF"
+    );
+
+    ObservableList<String> assGecomp5 = FXCollections.observableArrayList(
+            "Contábeis", "Extração de óbitos no SISOB", "Busca de inconsistências no COMPREV",
+            "Extração de novas exigências", "Levantamento de prioridades(Processos antigos ou sobrestado)",
+            "DOE (ESTADUAL/TJSC/ALESC/TCE)"
+    );
+
+    ObservableList<String> assGecomp6 = FXCollections.observableArrayList(
+            "Sem assunto para esta atividade"
+    );
+
     public void gecomp() {
         atividadeComboBox.setItems(atvGecomp);
         conclusaoComboBox.setItems(conclusao);
@@ -237,24 +266,110 @@ public class MovimentacaoController {
             } else if (newValue == "ANALISE DE COMP. (RO) IPREV SOLICITANTE RGPS/INSS") {
                 assuntoComboBox.setItems(assGecomp2);
             } else if (newValue == "ANALISE DE COMP.(RO) DAS PENSÕES") {
-
+                assuntoComboBox.setItems(assGecomp3);
             } else if (newValue == "ANALISE DE COMP. (RI) SENDO O INSS SOLICITANTE") {
-
+                assuntoComboBox.setItems(assGecomp4);
             } else if (newValue == "CORREÇÃO DOS FORMULÁRIOS DE ANALISE(SIST. ANTIGO)") {
-
+                assuntoComboBox.setItems(assGecomp5);
             } else if (newValue == "DIGITALIZAÇÃO DE DOC. FÍSICOS AOS ANALISTAS E PERITOS DO COMPREV") {
-
+                assuntoComboBox.setItems(assGecomp5);
             } else if (newValue == "EMISSÃO DE RELATÓRIOS") {
-
+                assuntoComboBox.setItems(assGecomp5);
             } else if (newValue == "REGISTRO DE ANÁLISE DE DEMANDAS(SIST. RAFAEL)") {
-
+                assuntoComboBox.setItems(assGecomp6);
             } else if (newValue == "ANALISE DAS APOSENT. POR INVALIDEZ POR MÉDICO PERITO NO SISTEMA COMPREV.") {
-
+                assuntoComboBox.setItems(assGecomp6);
             } else if (newValue == "ANALISE DE PENSÃO FILHO MAIOR INVÁLIDO POR MÉDICO PERITO NO SISTEMA COMPREV") {
-
+                assuntoComboBox.setItems(assGecomp6);
             }
         });
     }
+
+    ObservableList<String> atvGfpag = FXCollections.observableArrayList(
+            "Conferência final da folha de pagamento dos inativos",
+            "Ressarcimento de remuneração por óbito de servidor inativo",
+            "Afastar da folha de pagamento os servidores inativos que vieram a óbito",
+            "Receber e distribuir os processos com demandas judiciais e administrativas",
+            "Elaborar relatório pensão"
+    );
+
+    ObservableList<String> assGfpag1 = FXCollections.observableArrayList(
+            "Gerar Resumo para  Comparação entre os arquivos da Folha no SIGRH",
+            "Gerar relatório de óbitos", "Gerar relatório de aposentadoria do período",
+            "Conferir a folha do mês anterior com a folha que está em desenvolvimento no mês, gerando relatório específico para cada rubrica",
+            "Encaminhamento dos arquivos gerados da folha de pagamento, via SGPE, ao Banco do Brasil",
+            "Verificação dos valores rejeitados por motivos de mudança de cadastro do servidor ou óbito",
+            "Acompanhar arquivos de folha suplementar se necessário",
+            "Acompanhamento do cadastro e do recadastramento de servidores inativos",
+            "Acompanhamento e levantamento de valores mensalmente bloqueados por falta de recadastramento",
+            "Gerar o arquivo com relatório do banco mensal",
+            "Gerar arquivos de pagamento por recadastramento, via arquivos bancários",
+            "Busca de inativos que não se recadastraram no período certo, para evitar o bloqueio e cancelamento do cadastro"
+    );
+
+    ObservableList<String> assGfpag2 = FXCollections.observableArrayList(
+            "Analisar processos relativos ao auxílio funeral",
+            "Identificar os servidores falecidos que receberam valores indevidos",
+            "Fazer o cálculo dos valores pagos indevidamente em razão de óbito de servidor inativo",
+            "Encaminhar ofício ao Banco do Brasil solicitando estorno de pagamento",
+            "Solicitar cópia da certidão de óbito junto aos cartórios",
+            "Providenciar abertura de processo"
+    );
+
+    ObservableList<String> assGfpag3 = FXCollections.observableArrayList(
+            "Identificar e selecionar os servidores inativos, que vieram a óbito, nos relatórios enviados pelos cartórios",
+            "Acompanhar os pedidos de pensão para identificar servidores aposentados que faleceram",
+            "Encerrar (Afastar), no SIGRH, os servidores inativos que faleceram (Cartórios e SISOB)"
+    );
+
+    ObservableList<String> assGfpag4 = FXCollections.observableArrayList(
+            "Providenciar a solução para as demandas judiciais",
+            "Providenciar a solução para as demandas administrativas",
+            "Calcular o redutor da aposentadoria nos casos de acúmulo com pensão",
+            "Lançar o redutor da aposentadoria no SIGRH",
+            "Comunicar o servidor acerca do redutor de sua aposentadoria",
+            "Comunicar a gerência de compensação previdenciária as aposentadorias que incidiu o redutor"
+    );
+
+
+    ObservableList<String> assGfpag5 = FXCollections.observableArrayList(
+            "Calcular os valores de contribuição previdenciária e/ou de imposto de renda a serem restituídos a(o) pensionista",
+            "Lançar no SIGRH os valores da contribuição previdenciária e/ou do imposto de renda a serem restituídos a(o) pensionista"
+    );
+
+    ObservableList<String> assGfpag6 = FXCollections.observableArrayList(
+            "Calcular o valor da pensão relativa ao IPALESC",
+            "Elaborar o relatório com o resumo da folha da pensão paga pelos Poderes",
+            "Gerar o Relatório 41",
+            "Encaminhar email à Fazenda, à Controladoria e, à Diretoria de Previdência, à Presidência, à GEAFC disponibilizando os relatórios"
+    );
+
+
+
+    public void gfpag() {
+        atividadeComboBox.setItems(atvGfpag);
+        conclusaoComboBox.setItems(conclusao);
+
+        atividadeComboBox.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue == "Conferência final da folha de pagamento dos inativos"){
+                assuntoComboBox.setItems(assGfpag1);
+            } else if (newValue == "Ressarcimento de remuneração por óbito de servidor inativo") {
+                assuntoComboBox.setItems(assGfpag2);
+            } else if (newValue == "Afastar da folha de pagamento os servidores inativos que vieram a óbito") {
+                assuntoComboBox.setItems(assGfpag3);
+            } else if (newValue == "Receber e distribuir os processos com demandas judiciais e administrativas") {
+                assuntoComboBox.setItems(assGfpag4);
+            } else if (newValue == "Restituir valores de contribuição previdenciária e de IRRF aprovados pela Perícia pensionistas") {
+                assuntoComboBox.setItems(assGfpag5);
+            } else if (newValue == "Elaborar relatório pensão") {
+                assuntoComboBox.setItems(assGfpag6);
+            }
+        });
+
+
+    }
+
+
 
 
     ObservableList<String> atvGetig = FXCollections.observableArrayList(
@@ -265,22 +380,6 @@ public class MovimentacaoController {
     ObservableList<String> assGetig = FXCollections.observableArrayList(
             "Software",
             "Hardware"
-    );
-
-    ObservableList<String> daniel = FXCollections.observableArrayList(
-            "Assunto Daniel"
-    );
-
-    ObservableList<String> nivea = FXCollections.observableArrayList(
-            "Assunto Nivea"
-    );
-
-    ObservableList<String> dipr = FXCollections.observableArrayList(
-            "GEPES", "GERIN"
-    );
-
-    ObservableList<String> conclusao2 = FXCollections.observableArrayList(
-            "Pronto 2", "Não finalizado 2"
     );
 
     ObservableList<String> horario = FXCollections.observableArrayList(
@@ -296,23 +395,6 @@ public class MovimentacaoController {
     public void getig() {
         atividadeComboBox.setItems(atvGetig);
         assuntoComboBox.setItems(assGetig);
-    }
-
-    public void definirAssunto(Usuario usuario) {
-         // o sistema vai pegar o usuario que está logado e vai ver qual o setor ele pertence
-         // conforme o setor que o usuário pertencer, vai definir as atividades e os assuntos
-
-        /*atividadeComboBox.valueProperty().addListener((obs, oldValue, newValue) -> {
-            if (newValue == "Emitir Certidão Daniel") {
-                assuntoComboBox.getItems().clear();
-                assuntoComboBox.setItems(daniel);
-                conclusaoComboBox.setItems(conclusao);
-            } else if (newValue == "Emitir Certidão Nivea"){
-                assuntoComboBox.getItems().clear();
-                assuntoComboBox.setItems(nivea);
-                conclusaoComboBox.setItems(conclusao2);
-            }
-        });*/
     }
 
     @FXML

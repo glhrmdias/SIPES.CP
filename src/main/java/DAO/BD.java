@@ -10,6 +10,55 @@ import java.util.*;
 
 public class BD {
 
+    public List<Usuario> getUsuario() {
+        Conexao con = new Conexao();
+
+        String sql = "SELECT * FROM usuario ORDER BY nome";
+
+        List<Usuario> usuarios = new ArrayList<>();
+
+        List<Setor> setores = getSetor();
+        Map<Integer, Setor> mapSetor = new HashMap<>();
+
+        for(Setor setor : setores) {
+            mapSetor.put(setor.getId(), setor);
+        }
+
+        List<TipoUsuario> tipoUsuarios = getTipoUsuario();
+        Map<Integer, TipoUsuario> mapTipoUsuario = new HashMap<>();
+
+        for (TipoUsuario tp : tipoUsuarios) {
+            mapTipoUsuario.put(tp.getId(), tp);
+        }
+
+        ResultSet resultSet = con.ExecutaSelect(sql);
+
+        if (resultSet != null ) {
+            try {
+                if (resultSet.next()) {
+                    int id = resultSet.getInt("id");
+                    String matric = resultSet.getString("matricula");
+                    String nome = resultSet.getString("nome");
+                    String senha = resultSet.getString("senha");
+                    int setor = resultSet.getInt("setor_id");
+                    int tp = resultSet.getInt("tipo_usuario_id");
+                    Usuario usuario = new Usuario();
+                    usuario.setId(id);
+                    usuario.setNome(nome);
+                    usuario.setMatricula(matric);
+                    usuario.setSetor(mapSetor.get(setor));
+                    usuario.setSenha(senha);
+                    usuario.setTipoUsuario(mapTipoUsuario.get(tp));
+                    usuarios.add(usuario);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        con.fecharConexao();
+        return usuarios;
+    }
+
     public List<TipoUsuario> getTipoUsuario() {
         Conexao con = new Conexao();
 
@@ -125,7 +174,7 @@ public class BD {
 
         List<Orgao> orgaos = new ArrayList<Orgao>();
 
-        String sql = "SELECT * from orgao";
+        String sql = "SELECT * from orgao ORDER BY orgao";
 
         ResultSet resultSet = con.ExecutaSelect(sql);
 
@@ -154,7 +203,7 @@ public class BD {
 
         List<Localidade> locals = new ArrayList<Localidade>();
 
-        String sql = "SELECT * from localidade";
+        String sql = "SELECT * from localidade ORDER BY localidade";
 
         ResultSet resultSet = con.ExecutaSelect(sql);
 

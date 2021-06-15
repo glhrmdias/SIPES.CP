@@ -77,7 +77,7 @@ public class ComboBoxKeyCompleter {
                 completer.setLength(0);
                 timer.cancel();
             }
-        }, 5000);
+        }, 3000);
 
         if (tooltip.isShowing()) return;
 

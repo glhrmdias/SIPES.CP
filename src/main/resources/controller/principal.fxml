@@ -34,6 +34,11 @@
                   <MenuItem fx:id="trocarMenuItem" mnemonicParsing="false" onAction="#trocarUsuario" text="Trocar usuário" />
               </items>
             </Menu>
+            <Menu mnemonicParsing="false" text="Listar">
+              <items>
+                <MenuItem fx:id="listUsuarioMenuItem" mnemonicParsing="false" onAction="#listUsuario" text="Usuários" />
+              </items>
+            </Menu>
         </menus>
       </MenuBar>
       <ToolBar prefHeight="78.0" prefWidth="600.0">

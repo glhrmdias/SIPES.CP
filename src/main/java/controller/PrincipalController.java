@@ -87,7 +87,7 @@ public class PrincipalController {
     public Menu cadastrarMenu, editarMenu, sistemaMenu;
 
     @FXML
-    public MenuItem sobreMenuItem, trocarMenuItem;
+    public MenuItem sobreMenuItem, trocarMenuItem, listUsuarioMenuItem;
 
     @FXML
     public Button cadastrarButton, excluirButton;
@@ -171,10 +171,7 @@ public class PrincipalController {
         horaLabel.setText(dateTimeFormatter.format(dataAtual) + " " + sdf.format(hora));
 
         doubleClickSap();
-
         trocarUsuario();
-
-
 
     }
 
@@ -280,6 +277,7 @@ public class PrincipalController {
     public void refreshTable() {
         atividadeTableView.refresh();
     }
+
     /*public void attTable(Setor setor) {
         List<Movimentacao> movimentacaos = bd.listarMovimentacao(setor.getId());
         atividadeTableView.getItems().clear();
@@ -292,7 +290,6 @@ public class PrincipalController {
         atividadeTableView.getItems().addAll(movimentacaos);
         /*filterTable();*/
     }
-
 
     public void getUserLogged (Usuario usr) {
         usuario = usr;
@@ -314,6 +311,20 @@ public class PrincipalController {
         usuarioStage.show();
     }
 
+    @FXML
+    public void listUsuario() throws IOException {
+        Stage listStage = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("listaUsuarios.fxml"));
+        Parent root = loader.load();
+
+        ListUsuarioController listController = loader.getController();
+        listController.setPrincipalController(this);
+        listStage.setTitle("CADASTRAR USUÁRIO");
+        listStage.setScene(new Scene(root));
+        listStage.setResizable(false);
+        listStage.show();
+    }
 
     @FXML
     public void cadastrarSetor() throws IOException {
@@ -377,6 +388,8 @@ public class PrincipalController {
             movimentacaoController.getig();
         } else if (usrLogin.getSetor().getId()==8) {
             movimentacaoController.gecomp();
+        } else if (usrLogin.getSetor().getId()==9) {
+            movimentacaoController.gfpag();
         }
 
         setorStage.setTitle("Cadastrar Atividade");
