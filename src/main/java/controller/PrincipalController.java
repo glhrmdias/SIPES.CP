@@ -105,6 +105,8 @@ public class PrincipalController {
 
     public Stage stage = new Stage();
 
+    public ListUsuarioController listController;
+
     @FXML
     public void initialize() {
 
@@ -318,7 +320,7 @@ public class PrincipalController {
         loader.setLocation(getClass().getResource("listaUsuarios.fxml"));
         Parent root = loader.load();
 
-        ListUsuarioController listController = loader.getController();
+        listController = loader.getController();
         listController.setPrincipalController(this);
         listStage.setTitle("CADASTRAR USUÁRIO");
         listStage.setScene(new Scene(root));

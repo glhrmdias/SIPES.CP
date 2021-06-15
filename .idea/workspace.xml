@@ -2,25 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03ee2550-9964-4b2f-8a65-c52624dc47a2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/DAO/BD.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/DAO/BD.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/controller/MovimentacaoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controller/MovimentacaoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/controller/PrincipalController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controller/PrincipalController$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/controller/PrincipalController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controller/PrincipalController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/util/ComboBoxKeyCompleter.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/util/ComboBoxKeyCompleter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/BD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/BD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MovimentacaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MovimentacaoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/PrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/PrincipalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/ComboBoxKeyCompleter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/ComboBoxKeyCompleter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/controller/principal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/controller/principal.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
