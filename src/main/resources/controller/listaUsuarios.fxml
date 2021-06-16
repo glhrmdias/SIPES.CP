@@ -17,6 +17,7 @@
         <columns>
           <TableColumn fx:id="nomeTableColumn" prefWidth="75.0" text="Nome" />
           <TableColumn fx:id="matriculaTableColumn" prefWidth="75.0" text="Matrícula" />
+            <TableColumn fx:id="tipoUsuarioTableColumn" prefWidth="75.0" text="Tipo Usuário" />
         </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

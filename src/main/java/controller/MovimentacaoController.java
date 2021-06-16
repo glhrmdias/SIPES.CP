@@ -55,7 +55,7 @@ public class MovimentacaoController {
     public ComboBox<Localidade> localidadeComboBox;
 
     @FXML
-    public Button cadastrarButton, fecharButton;
+    public Button cadastrarButton, fecharButton, orgaoButton, localButton;
 
     @FXML
     public DatePicker dataRefDatePicker, dataInicioDatePicker, dataFimDatePicker;
@@ -126,6 +126,36 @@ public class MovimentacaoController {
         completer.install(localidadeComboBox);
         completer.install(orgaoComboBox);
 
+    }
+
+    @FXML
+    public void listaOrgao() throws IOException {
+        Stage usuarioStage = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("listaOrgaos.fxml"));
+        Parent root = loader.load();
+
+        ListOrgaoController listOrgaoController = loader.getController();
+        listOrgaoController.setPrincipalController(this);
+        usuarioStage.setTitle("Lista Secretarias e Órgãos");
+        usuarioStage.setScene(new Scene(root));
+        usuarioStage.setResizable(false);
+        usuarioStage.show();
+    }
+
+    @FXML
+    public void listaLocal() throws IOException {
+        Stage usuarioStage = new Stage();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("listaLocalidades.fxml"));
+        Parent root = loader.load();
+
+        ListLocalidadeController listLocalidadeController = loader.getController();
+        listLocalidadeController.setPrincipalController(this);
+        usuarioStage.setTitle("Lista Localidades");
+        usuarioStage.setScene(new Scene(root));
+        usuarioStage.setResizable(false);
+        usuarioStage.show();
     }
 
     public void verifyUser(Usuario usr) {
@@ -368,9 +398,6 @@ public class MovimentacaoController {
 
 
     }
-
-
-
 
     ObservableList<String> atvGetig = FXCollections.observableArrayList(
             "Arrumar computador",

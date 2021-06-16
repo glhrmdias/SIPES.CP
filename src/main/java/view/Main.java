@@ -14,7 +14,7 @@ public class Main extends Application {
 
     @Override
         public void start(Stage primaryStage) throws Exception {
-            Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("loginOutra.fxml"));
             primaryStage.setTitle("Sistema de Atendimento dos Servidores - SAS v" + versao);
             primaryStage.setScene(new Scene(root));
             primaryStage.setMaximized(false);

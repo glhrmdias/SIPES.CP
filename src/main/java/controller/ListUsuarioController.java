@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import model.TipoUsuario;
 import model.Usuario;
 
 import javax.management.StandardMBean;
@@ -24,6 +25,9 @@ public class ListUsuarioController {
 
     @FXML
     public TableColumn<Usuario, String> nomeTableColumn, matriculaTableColumn;
+
+    @FXML
+    public TableColumn<Usuario, TipoUsuario> tipoUsuarioTableColumn;
 
     @FXML
     public TextField nomeTextField, matriculaTextField;
@@ -46,6 +50,10 @@ public class ListUsuarioController {
 
         matriculaTableColumn.setCellValueFactory(param -> {
             return new SimpleObjectProperty(param.getValue().getMatricula());
+        });
+
+        tipoUsuarioTableColumn.setCellValueFactory(param -> {
+            return new SimpleObjectProperty(param.getValue().getTipoUsuario().getTipoUsuario());
         });
 
         getData();

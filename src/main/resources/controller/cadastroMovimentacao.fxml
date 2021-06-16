@@ -27,9 +27,9 @@
       <TextField fx:id="processoTextField" layoutX="156.0" layoutY="260.0" prefHeight="25.0" prefWidth="225.0" />
       <CheckBox fx:id="processoCheckBox" layoutX="437.0" layoutY="264.0" mnemonicParsing="false" selected="true" text="Possuí processo?" />
       <Label layoutX="61.0" layoutY="303.0" text="Sec./Órgão" />
-      <ComboBox fx:id="orgaoComboBox" layoutX="135.0" layoutY="299.0" prefHeight="25.0" prefWidth="412.0" />
+      <ComboBox fx:id="orgaoComboBox" layoutX="135.0" layoutY="299.0" prefHeight="25.0" prefWidth="347.0" />
       <Label layoutX="61.0" layoutY="343.0" text="Localidade" />
-      <ComboBox fx:id="localidadeComboBox" layoutX="135.0" layoutY="339.0" prefHeight="25.0" prefWidth="412.0" />
+      <ComboBox fx:id="localidadeComboBox" layoutX="135.0" layoutY="339.0" prefHeight="25.0" prefWidth="347.0" />
       <Label layoutX="61.0" layoutY="381.0" text="Data início" />
       <DatePicker fx:id="dataInicioDatePicker" layoutX="135.0" layoutY="377.0" prefHeight="25.0" prefWidth="164.0" />
       <Label layoutX="322.0" layoutY="381.0" text="Data fim" />
@@ -51,5 +51,7 @@
             <Font size="10.0" />
          </font></Button>
       <Label layoutX="62.0" layoutY="144.0" text="Usuário" />
+      <Button fx:id="orgaoButton" layoutX="493.0" layoutY="299.0" mnemonicParsing="false" onAction="#listaOrgao" prefHeight="25.0" prefWidth="55.0" text="?" />
+      <Button fx:id="localButton" layoutX="493.0" layoutY="339.0" mnemonicParsing="false" onAction="#listaLocal" prefHeight="25.0" prefWidth="55.0" text="?" />
    </children>
 </AnchorPane>

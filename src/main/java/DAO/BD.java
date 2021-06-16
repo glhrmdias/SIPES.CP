@@ -35,7 +35,7 @@ public class BD {
 
         if (resultSet != null ) {
             try {
-                if (resultSet.next()) {
+                while (resultSet.next()) {
                     int id = resultSet.getInt("id");
                     String matric = resultSet.getString("matricula");
                     String nome = resultSet.getString("nome");
