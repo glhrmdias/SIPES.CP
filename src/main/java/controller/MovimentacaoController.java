@@ -113,10 +113,10 @@ public class MovimentacaoController {
             }
         });
 
-        Image cadastrar = new Image(getClass().getResourceAsStream("/verifica.png"));
+        Image cadastrar = new Image(getClass().getResourceAsStream("/edit1.png"));
         cadastrarButton.setGraphic(new ImageView(cadastrar));
 
-        Image cancelar = new Image(getClass().getResourceAsStream("/cancelar.png"));
+        Image cancelar = new Image(getClass().getResourceAsStream("/can1.png"));
         fecharButton.setGraphic(new ImageView(cancelar));
 
         ComboBoxKeyCompleter completer = new ComboBoxKeyCompleter();
@@ -400,14 +400,84 @@ public class MovimentacaoController {
     }
 
     ObservableList<String> atvGetig = FXCollections.observableArrayList(
-            "Arrumar computador",
-            "Arrumar monitor"
+            "Suporte em software", "Suporte em hardware",
+            "Cadastramento e manutenção de usuários", "Desenvolvimento", "Serviços administrativos",
+            "Outros"
     );
 
-    ObservableList<String> assGetig = FXCollections.observableArrayList(
-            "Software",
-            "Hardware"
+    ObservableList<String> assGetig1 = FXCollections.observableArrayList(
+            "Sistema operacional", "Pacote Office", "Sistema legado", "SGPE",
+            "SIGRH", "SICOP", "SAP", "SOS - Chamados", "Navegadores", "Certificado Digital",
+            "Planilhas", "Power BI", "Boa vista", "Arquivos acervo"
     );
+
+    ObservableList<String> assGetig2 = FXCollections.observableArrayList(
+            "Computadores", "Monitores", "Teclados", "Mouse", "Estabilizadores",
+            "Cabeamento", "Switch", "Roteadores", "Telefones IP", "Projetores", "Som",
+            "TV", "Cameras", "Catraca", "Ponto de rede", "Rede elétrica"
+    );
+
+    ObservableList<String> assGetig3 = FXCollections.observableArrayList(
+            "E-Mail", "Rede Iprev", "Senhas de rede", "Pastas de rede", "Catraca",
+            "CIASC ETERNAL", "CIASC(PROD)", "Ramais", "Outro sistema"
+    );
+
+    ObservableList<String> assGetig4 = FXCollections.observableArrayList(
+            "Sistemas", "Bancos de dados", "Scripts", "API'S", "Ferramentas analíticas",
+            "Query Boa Vista", "Processos de ETL", "Dashboards", "Migração entre sistemas",
+            "Planilhas e Formulários"
+    );
+
+    ObservableList<String> assGetig5 = FXCollections.observableArrayList(
+            "Certificação de notas fiscais", "Coordenar Dev. e aquisição de sistemas",
+            "Levantamento de orçamento", "Elaboração de contratos", "Participação em reuniões"
+    );
+
+    ObservableList<String> assGetig6 = FXCollections.observableArrayList(
+            "Recuperação de arquivos Acervo"
+    );
+
+    public void getig() {
+        atividadeComboBox.setItems(atvGetig);
+        conclusaoComboBox.setItems(conclusao);
+
+        atividadeComboBox.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue == "Suporte em software"){
+                assuntoComboBox.setItems(assGetig1);
+            } else if (newValue == "Suporte em hardware") {
+                assuntoComboBox.setItems(assGetig2);
+            } else if (newValue == "Cadastramento e manutenção de usuários") {
+                assuntoComboBox.setItems(assGetig3);
+            } else if (newValue == "Desenvolvimento") {
+                assuntoComboBox.setItems(assGetig4);
+            } else if (newValue == "Serviços administrativos") {
+                assuntoComboBox.setItems(assGetig5);
+            } else if (newValue == "Outros") {
+                assuntoComboBox.setItems(assGetig6);
+            }
+        });
+    }
+
+    ObservableList<String> atvPres = FXCollections.observableArrayList(
+            "Análise de processo"
+    );
+
+    ObservableList<String> assPres = FXCollections.observableArrayList(
+            "Pensão", "Averbação", "Retificação", "Aposentadoria", "Habitacional",
+            "CTC", "Pareceres", "Portaria", "Levantamento de débito", "Valores pendentes",
+            "Restituição de Contribuição Previdenciária / Devolução de valores", "Encaminhamentos"
+    );
+
+    public void presidencia() {
+        atividadeComboBox.setItems(atvPres);
+        conclusaoComboBox.setItems(conclusao);
+
+        atividadeComboBox.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue == "Análise de processo"){
+                assuntoComboBox.setItems(assPres);
+            }
+        });
+    }
 
     ObservableList<String> horario = FXCollections.observableArrayList(
             "08:00", "09:00"
@@ -418,11 +488,6 @@ public class MovimentacaoController {
             "Aguardando compensação", "Compensado", "Criado", "Em análise", "Indeferido", "Incluído",
             "Alterado", "Bloqueado", "Encaminhado", "Emitido"
     );
-
-    public void getig() {
-        atividadeComboBox.setItems(atvGetig);
-        assuntoComboBox.setItems(assGetig);
-    }
 
     @FXML
     public void cadastrar() {

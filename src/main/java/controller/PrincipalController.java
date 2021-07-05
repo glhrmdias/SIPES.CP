@@ -164,10 +164,10 @@ public class PrincipalController {
             return new SimpleObjectProperty(param.getValue().getSetor());
         });
 
-        Image cadastrar = new Image(getClass().getResourceAsStream("/add.png"));
+        Image cadastrar = new Image(getClass().getResourceAsStream("/atv1.png"));
         cadastrarButton.setGraphic(new ImageView(cadastrar));
 
-        Image excluir = new Image(getClass().getResourceAsStream("/excluir.png"));
+        Image excluir = new Image(getClass().getResourceAsStream("/del1.png"));
         excluirButton.setGraphic(new ImageView(excluir));
 
         horaLabel.setText(dateTimeFormatter.format(dataAtual) + " " + sdf.format(hora));
@@ -392,6 +392,8 @@ public class PrincipalController {
             movimentacaoController.gecomp();
         } else if (usrLogin.getSetor().getId()==9) {
             movimentacaoController.gfpag();
+        } else if (usrLogin.getSetor().getId()==10) {
+            movimentacaoController.presidencia();
         }
 
         setorStage.setTitle("Cadastrar Atividade");
