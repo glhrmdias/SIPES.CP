@@ -376,8 +376,9 @@ public class PrincipalController {
     public void cadastrarMovimentacao() throws IOException {
         Stage setorStage = new Stage();
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("cadastroMovimentacao.fxml"));
+        loader.setLocation(getClass().getResource("atividades.fxml"));
         Parent root = loader.load();
+        //Scene scene = new Scene(root);
 
         MovimentacaoController movimentacaoController = loader.getController();
         movimentacaoController.setPrincipalController(this);
@@ -406,7 +407,7 @@ public class PrincipalController {
     public void editarMovimentacao() throws IOException {
         Stage setorStage = new Stage();
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("cadastroMovimentacao.fxml"));
+        loader.setLocation(getClass().getResource("atividades.fxml"));
         Parent root = loader.load();
 
         MovimentacaoController movimentacaoController = loader.getController();

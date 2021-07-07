@@ -480,7 +480,8 @@ public class MovimentacaoController {
     }
 
     ObservableList<String> horario = FXCollections.observableArrayList(
-            "08:00", "09:00"
+            "13:00", "14:00", "15:00", "16:00",
+            "17:00", "18:00", "19:00"
     );
 
     ObservableList<String> conclusao = FXCollections.observableArrayList(
@@ -493,7 +494,11 @@ public class MovimentacaoController {
     public void cadastrar() {
 
         if (!validarDados()) {
-            //exibirMensagem("Existem campos em branco, por favor, preencher todos os campos!");
+            exibirMensagem("Existem campos em branco, ou com dados inválidos, revise seus dados!");
+            return;
+        }
+
+        if (!validadeDatas()){
             return;
         }
 
@@ -531,23 +536,63 @@ public class MovimentacaoController {
 
     }
 
-    public boolean validarDados() {
-        long diferenca = ChronoUnit.DAYS.between(dataFimDatePicker.getValue(), dataInicioDatePicker.getValue());
+    public boolean validadeDatas() {
+        long diferenca = ChronoUnit.DAYS.between(dataInicioDatePicker.getValue(), dataFimDatePicker.getValue());
 
         System.out.println(diferenca);
 
-        if (diferenca > 0) {
-            JOptionPane.showMessageDialog(null, "Data menor que o validado");
+        if (diferenca < 0) {
+            exibirMensagem("A data fim não pode ser menor que a data inicio, revise seus dados!");
             return false;
         }
 
-        if (setorComboBox.getValue() == null) {
-            JOptionPane.showMessageDialog(null, "Setor em branco!");
+        return true;
+    }
+
+    public boolean validarDados() {
+
+        if (atividadeComboBox.getValue() == null){
+            //JOptionPane.showMessageDialog(null, "Data menor que o validado");
             return false;
         }
 
-        if (assuntoComboBox.getValue() == null) {
-            JOptionPane.showMessageDialog(null, "Setor em branco!");
+        if (orgaoComboBox.getValue() == null){
+            //JOptionPane.showMessageDialog(null, "Data menor que o validado");
+            return false;
+        }
+
+        if (localidadeComboBox.getValue() == null){
+            //JOptionPane.showMessageDialog(null, "Data menor que o validado");
+            return false;
+        }
+
+        if (dataInicioDatePicker.getValue() == null){
+            //JOptionPane.showMessageDialog(null, "Data menor que o validado");
+            return false;
+        }
+
+        if (dataInicioDatePicker.getValue() == null){
+            //JOptionPane.showMessageDialog(null, "Data menor que o validado");
+            return false;
+        }
+
+        if (dataFimDatePicker.getValue() == null){
+            //JOptionPane.showMessageDialog(null, "Data menor que o validado");
+            return false;
+        }
+
+        if (horaInicioComboBox.getValue() == null){
+            //JOptionPane.showMessageDialog(null, "Data menor que o validado");
+            return false;
+        }
+
+        if (horaFimComboBox.getValue() == null){
+            //JOptionPane.showMessageDialog(null, "Data menor que o validado");
+            return false;
+        }
+
+        if (conclusaoComboBox.getValue() == null){
+            //JOptionPane.showMessageDialog(null, "Data menor que o validado");
             return false;
         }
 
