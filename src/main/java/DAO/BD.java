@@ -345,13 +345,14 @@ public class BD {
                     int orgaoId = resultSet.getInt("orgao_id");
                     int localId = resultSet.getInt("local_id");
                     LocalDate dtInicio = resultSet.getDate("dt_inicio").toLocalDate();
-                    LocalDate dtFim = resultSet.getDate("dt_fim").toLocalDate();
+                    LocalDate dtFim = resultSet.getDate("dt_fim") == null ? null : resultSet.getDate("dt_fim").toLocalDate();
                     String hrInicio = resultSet.getString("hr_inicio");
-                    String hrFim = resultSet.getString("hr_fim");
+                    String hrFim = resultSet.getString("hr_fim") == null ? null : resultSet.getString("hr_fim");
                     String conclusao = resultSet.getString("conclusao");
                     String observacao = resultSet.getString("observacao");
                     String usuario = resultSet.getString("usuario");
                     Movimentacao movi = new Movimentacao();
+                    movi.setId(id);
                     movi.setDataRegistro(dtRegistro);
                     movi.setSetor(mapSetor.get(setorId));
                     movi.setAtividade(atividade);
@@ -375,5 +376,24 @@ public class BD {
 
         con.fecharConexao();
         return movimetacoes;
+    }
+
+    public boolean excluir(Movimentacao movimentacao) {
+
+        Conexao con = new Conexao();
+
+        String sql = "DELETE from movimentacao WHERE id = '" + movimentacao.getId() + "'";
+
+        con.ExecutaSQL(sql);
+
+        int res = con.ExecutaSQL(sql);
+
+        con.fecharConexao();
+
+        if (res != 0) {
+            return  true;
+        } else {
+            return false;
+        }
     }
 }

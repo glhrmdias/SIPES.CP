@@ -3,9 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="03ee2550-9964-4b2f-8a65-c52624dc47a2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/BD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/BD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/MovimentacaoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/MovimentacaoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/MovimentacaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MovimentacaoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/PrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/PrincipalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/parametros.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/parametros.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/SetorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/SetorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/UsuarioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Movimentacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Movimentacao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/controller/principal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/controller/principal.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/loginOutra.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/loginOutra.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

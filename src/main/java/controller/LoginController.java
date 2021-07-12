@@ -9,6 +9,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import javafx.scene.control.*;
 import model.Usuario;
@@ -124,10 +126,12 @@ public class LoginController {
 
         if (getLoggedUser().getTipoUsuario().getId() == 1) {
             principalController.cadastrarMenu.setVisible(true);
-            principalController.editarMenu.setVisible(true);
+            //principalController.editarMenu.setVisible(true);
         } else if (getLoggedUser().getTipoUsuario().getId() == 2) {
             principalController.cadastrarMenu.setVisible(false);
-            principalController.editarMenu.setVisible(false);
+            //principalController.editarMenu.setVisible(false);
+            principalController.processoMenuItem.setVisible(false);
+            principalController.listarMenuItem.setVisible(false);
         }
 
         //principalController.attTable(getLoggedUser().getSetor());
@@ -164,5 +168,21 @@ public class LoginController {
         this.loggedUser = loggedUser;
         start();
         //abrirSistema();
+    }
+
+    @FXML public void sobreSistema() {
+
+
+    }
+
+    @FXML
+    private void handleKey(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER && event.getSource() == senhaTextField) {
+            entrar();
+            event.consume();
+        } else if (event.getCode() == KeyCode.ENTER && event.getSource() == loginTextField){
+           entrar();
+            event.consume();
+        }
     }
 }

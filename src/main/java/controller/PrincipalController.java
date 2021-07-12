@@ -55,11 +55,12 @@ public class PrincipalController {
 
     @FXML
     public VBox mainPane;
-    @FXML
-    public  Label usuarioLabel, horaLabel;
 
     @FXML
-    public MenuItem menuItemSetor, menuItemUsuario;
+    public Label usuarioLabel, horaLabel;
+
+    @FXML
+    public MenuItem menuItemSetor, menuItemUsuario, processoMenuItem, listarMenuItem;
 
     @FXML
     public TableView<Movimentacao> atividadeTableView;
@@ -90,10 +91,13 @@ public class PrincipalController {
     public MenuItem sobreMenuItem, trocarMenuItem, listUsuarioMenuItem;
 
     @FXML
-    public Button cadastrarButton, excluirButton;
+    public Button cadastrarButton, excluirButton, filtroButton;
 
     @FXML
     public TextField filtroTextField;
+
+    @FXML
+    public ComboBox<String> filtroComboBox;
 
     public DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/YYYY");
 
@@ -156,9 +160,9 @@ public class PrincipalController {
             return new SimpleObjectProperty(dateTimeFormatter.format(param.getValue().getDataInicio()));
         });
 
-        dtFimTableColumn.setCellValueFactory(param -> {
+        /*dtFimTableColumn.setCellValueFactory(param -> {
             return new SimpleObjectProperty(dateTimeFormatter.format(param.getValue().getDataFim()));
-        });
+        });*/
 
         setorTableColumn.setCellValueFactory(param -> {
             return new SimpleObjectProperty(param.getValue().getSetor());
@@ -251,12 +255,17 @@ public class PrincipalController {
 
     @FXML
     public void about() {
-        JOptionPane.showMessageDialog(null,
-                "Bem vindo ao SAS - Sistema de Atividades dos Servidores\n"
-                        + "Instituto de Previdência do Estado de Santa Catarina - IPREV.\n\n"
-                        + "Sistema desenvolvido pela GETIG - 2021\n"
-                        + "Desenvolvedor: Guilherme Humberto Dias\n"
-        );
+        String versao = " em desenvolvimento";
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Sobre o sistema");
+        alert.setHeaderText("Sistema de Atividades dos Servidores - SAS\n" +
+                "Desenvolvido por: Guilherme Humberto Dias\n");
+        alert.setContentText(
+                "Versão do sistema v" + versao + "\n"+
+                        "Gerência de Tecnologia e Governança Eletrônica\n" +
+                        "Instituto de Previdência do Estado de Santa Catarina");
+        alert.showAndWait();
     }
 
     @FXML
@@ -366,7 +375,7 @@ public class PrincipalController {
             attTable(usrLogin);
             System.out.println("O setor do usuário é: " + usuario.getSetor());
         } else {
-            movimentacaoDAO.cadastroMovimentacao(movimentacao);
+            movimentacaoDAO.attMovimentacao(movimentacao);
             attTable(usrLogin);
             System.out.println("O setor do usuário é: " + usuario.getSetor());
         }
@@ -422,6 +431,10 @@ public class PrincipalController {
         setorStage.show();
     }
 
+    public void attAtividadesTable() {
+        atividadeTableView.refresh();
+    }
+
     public void doubleClickSap() {
         atividadeTableView.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
@@ -439,6 +452,16 @@ public class PrincipalController {
             }
         });
 
+    }
+
+    @FXML
+    public void excluir() {
+        ObservableList<Movimentacao> movimentacaoSelected, todasMovimentacoes;
+        todasMovimentacoes = atividadeTableView.getItems();
+        movimentacaoSelected = atividadeTableView.getSelectionModel().getSelectedItems();
+
+        movimentacaoSelected.forEach(bd::excluir);
+        todasMovimentacoes.removeAll(movimentacaoSelected);
     }
 
     public void setPrincipalController(LoginController controller) {

@@ -24,11 +24,10 @@ public class SetorController {
     public void initialize() {
 
 
-
     }
 
     @FXML
-        public void cadastrarSetor() {
+    public void cadastrarSetor() {
 
         if (!validandoCampos()) {
             exibirMensagemErro("Preencha todos os dados!");
@@ -45,7 +44,7 @@ public class SetorController {
         setor.setNome(nomeTextField.getText());
         setor.setSigla(siglaTextField.getText());
 
-        if (editando == false){
+        if (editando == false) {
             principalController.adicionarSetor(setor);
             setor = null;
             System.out.println(setor);
@@ -74,6 +73,10 @@ public class SetorController {
         alert.setTitle("Erro");
         alert.setContentText(msg);
         alert.showAndWait();
+    }
+
+    public void fechar() {
+        fecharButton.getScene().getWindow().hide();
     }
 
 

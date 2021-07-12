@@ -20,13 +20,16 @@ public class MovimentacaoDAO {
                 + "', '" + movimentacao.getOrgao().getId()
                 + "', '" + movimentacao.getLocal().getId()
                 + "', '" + movimentacao.getDataInicio()
-                + "', '" + movimentacao.getDataFim()
-                + "', '" + movimentacao.getHoraInicio()
-                + "', '" + movimentacao.getHoraFim()
-                + "', '" + movimentacao.getConclusao()
+                + "', " + (movimentacao.getDataFim() == null ? null : "'" + movimentacao.getDataFim())
+                + ", '" + movimentacao.getHoraInicio()
+                + "', " + (movimentacao.getHoraFim() == null ? null : "'" + movimentacao.getHoraFim())
+                + ", '" + movimentacao.getConclusao()
                 + "', '" + movimentacao.getObervação()
                 + "', '" + movimentacao.getUsuario()
                 + "');";
+
+                // (movimentacao.getDataFim() == null ? null : "'" + movimentacao.getDataFim())
+                // (movimentacao.getHoraFim() == null ? null : "'" + movimentacao.getHoraFim())
 
         System.out.println(sql);
 
@@ -34,6 +37,34 @@ public class MovimentacaoDAO {
 
         con.fecharConexao();
 
+        if (res != 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean attMovimentacao(Movimentacao mov){
+        Conexao con = new Conexao();
+
+        String sql = "UPDATE movimentacao set dt_registro = '" + mov.getDataRegistro()
+                + "', setor_id = '" + mov.getSetor().getId()
+                + "', atividade = '" + mov.getAtividade()
+                + "', assunto = '" + mov.getAssunto()
+                + "', processo = '" + mov.getProcesso()
+                + "', orgao_id = '" + mov.getOrgao().getId()
+                + "', local_id = '" + mov.getLocal().getId()
+                + "', dt_inicio = '" + mov.getDataInicio()
+                + "', dt_fim = '" + mov.getDataFim()
+                + "', hr_inicio = '" + mov.getHoraInicio()
+                + "', hr_fim = '" + mov.getHoraFim()
+                + "', conclusao = '" + mov.getConclusao()
+                + "', observacao = '" + mov.getObervação()
+                + "' WHERE id = '" + mov.getId() + "'";
+
+        int res = con.ExecutaSQL(sql);
+        System.out.println(sql);
+        con.fecharConexao();
         if (res != 0) {
             return true;
         } else {

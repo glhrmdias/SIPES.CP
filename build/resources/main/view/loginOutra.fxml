@@ -7,10 +7,10 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="537.0" prefWidth="534.0" style="-fx-background-color: white;" stylesheets="@../parametros.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="537.0" prefWidth="534.0" style="-fx-background-color: white;" stylesheets="@../parametros.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
    <children>
-      <TextField fx:id="loginTextField" alignment="CENTER" layoutX="70.0" layoutY="191.0" prefHeight="41.0" prefWidth="397.0" promptText="Matrícula..." style="-fx-border-color: #8ac6da; -fx-background-color: white;" />
-      <PasswordField fx:id="senhaTextField" alignment="CENTER" layoutX="70.0" layoutY="241.0" prefHeight="41.0" prefWidth="397.0" promptText="Senha..." style="-fx-border-color: #8ac6da; -fx-background-color: white;" />
+      <TextField fx:id="loginTextField" alignment="CENTER" layoutX="70.0" layoutY="191.0" onKeyPressed="#handleKey" prefHeight="41.0" prefWidth="397.0" promptText="Matrícula..." style="-fx-border-color: #8ac6da; -fx-background-color: white;" />
+      <PasswordField fx:id="senhaTextField" alignment="CENTER" layoutX="70.0" layoutY="241.0" onKeyPressed="#handleKey" prefHeight="41.0" prefWidth="397.0" promptText="Senha..." style="-fx-border-color: #8ac6da; -fx-background-color: white;" />
       <Button fx:id="fecharButton" layoutX="68.0" layoutY="388.0" mnemonicParsing="false" onAction="#fecharJanela" prefHeight="32.0" prefWidth="397.0" style="-fx-background-color: WHITE; -fx-border-color: #8ac6da;" styleClass="buttonLogin" text="Fechar" />
       <Button fx:id="acessarButton" layoutX="70.0" layoutY="348.0" mnemonicParsing="false" onAction="#entrar" prefHeight="32.0" prefWidth="397.0" style="-fx-background-color: #4a8599; -fx-border-color: #8ac6da;" styleClass="buttonLogin" text="Acessar" textFill="WHITE" />
       <Button fx:id="infoButton" layoutX="422.0" layoutY="443.0" mnemonicParsing="false" onAction="#info" opacity="0.25" prefHeight="32.0" prefWidth="43.0" style="-fx-background-color: white; -fx-border-color: #8ac6da;" />

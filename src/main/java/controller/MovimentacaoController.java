@@ -1,6 +1,7 @@
 package controller;
 
 import DAO.BD;
+import DAO.MovimentacaoDAO;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -30,7 +31,8 @@ import java.time.temporal.ChronoUnit;
 
 public class MovimentacaoController {
     BD bd = new BD();
-
+    MovimentacaoDAO movDAO = new MovimentacaoDAO()
+;
     public Usuario usuario;
 
     private Movimentacao movimentacao;
@@ -480,8 +482,8 @@ public class MovimentacaoController {
     }
 
     ObservableList<String> horario = FXCollections.observableArrayList(
-            "13:00", "14:00", "15:00", "16:00",
-            "17:00", "18:00", "19:00"
+            "12:00", "12:30","13:00","13:30", "14:00","14:30", "15:00","15:30", "16:00",
+            "16:30", "17:00","17:30", "18:00","18:30", "19:00"
     );
 
     ObservableList<String> conclusao = FXCollections.observableArrayList(
@@ -528,8 +530,10 @@ public class MovimentacaoController {
             principalController.adicionarMovimentacao(movimentacao);
             movimentacao = null;
             cadastrarButton.getScene().getWindow().hide();
-        } else {
-
+        } else if (editando == true){
+            principalController.attAtividadesTable();
+            movDAO.attMovimentacao(movimentacao);
+            cadastrarButton.getScene().getWindow().hide();
         }
 
         System.out.println(movimentacao);
@@ -537,13 +541,21 @@ public class MovimentacaoController {
     }
 
     public boolean validadeDatas() {
-        long diferenca = ChronoUnit.DAYS.between(dataInicioDatePicker.getValue(), dataFimDatePicker.getValue());
+        /*long diferenca = ChronoUnit.DAYS.between(dataInicioDatePicker.getValue(), dataFimDatePicker.getValue());*/
 
-        System.out.println(diferenca);
+        /*System.out.println(diferenca);*/
 
-        if (diferenca < 0) {
-            exibirMensagem("A data fim não pode ser menor que a data inicio, revise seus dados!");
+        if (dataInicioDatePicker.getValue() != null && dataFimDatePicker.getValue() != null ) {
+
+            long diferenca = ChronoUnit.DAYS.between(dataInicioDatePicker.getValue(), dataFimDatePicker.getValue());
+
+            if (diferenca < 0){
+                exibirMensagem("A data fim não pode ser menor que a data inicio, revise seus dados!");
+            }
             return false;
+
+        } else if (dataFimDatePicker.getValue() == null){
+            return true;
         }
 
         return true;
@@ -576,20 +588,20 @@ public class MovimentacaoController {
             return false;
         }
 
-        if (dataFimDatePicker.getValue() == null){
+        /*if (dataFimDatePicker.getValue() == null){
             //JOptionPane.showMessageDialog(null, "Data menor que o validado");
             return false;
-        }
+        }*/
 
         if (horaInicioComboBox.getValue() == null){
             //JOptionPane.showMessageDialog(null, "Data menor que o validado");
             return false;
         }
 
-        if (horaFimComboBox.getValue() == null){
+        /*if (horaFimComboBox.getValue() == null){
             //JOptionPane.showMessageDialog(null, "Data menor que o validado");
             return false;
-        }
+        }*/
 
         if (conclusaoComboBox.getValue() == null){
             //JOptionPane.showMessageDialog(null, "Data menor que o validado");

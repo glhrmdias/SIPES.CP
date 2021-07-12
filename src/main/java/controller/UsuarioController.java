@@ -116,4 +116,8 @@ public class UsuarioController {
         principalController = controller;
     }
 
+    public void fechar() {
+        fecharButton.getScene().getWindow().hide();
+    }
+
 }

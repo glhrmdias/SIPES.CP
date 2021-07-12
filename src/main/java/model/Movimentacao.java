@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 public class Movimentacao {
 
+    public int id;
     public LocalDate dataRegistro;
     public Setor setor;
     public String atividade;
@@ -18,6 +19,14 @@ public class Movimentacao {
     public String conclusao;
     public String obervação;
     public String usuario;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getUsuario() {
         return usuario;
