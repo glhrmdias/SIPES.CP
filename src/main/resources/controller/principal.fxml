@@ -68,13 +68,13 @@
         <columns>
             <TableColumn fx:id="numeracaoTableColumn" prefWidth="75.0" text="Nº" />
           <TableColumn fx:id="nomeTableColumn" prefWidth="75.0" text="Nome" />
-          <TableColumn fx:id="setorTableColumn" prefWidth="75.0" text="Setor" />
+          <TableColumn fx:id="setorTableColumn" prefWidth="75.0" style="-fx-alignment: center;" text="Setor" />
             <TableColumn fx:id="atividadeTableColumn" prefWidth="75.0" text="Atividade" />
             <TableColumn fx:id="assuntoTableColumn" prefWidth="75.0" text="Assunto" />
             <TableColumn fx:id="orgaoTableColumn" prefWidth="75.0" text="Secretaria/Órgão" />
             <TableColumn fx:id="localTableColumn" prefWidth="75.0" text="Localidade" />
-            <TableColumn fx:id="dtInicioTableColumn" prefWidth="75.0" text="Data Inicio" />
-            <TableColumn fx:id="dtFimTableColumn" prefWidth="75.0" text="Data Fim" />
+            <TableColumn fx:id="dtInicioTableColumn" prefWidth="75.0" style="-fx-alignment: center;" text="Data Inicio" />
+            <TableColumn fx:id="dtFimTableColumn" prefWidth="75.0" text="Data Fim" visible="false" />
             <TableColumn fx:id="conclusaoTableColumn" prefWidth="75.0" text="Conclusão" />
             <TableColumn fx:id="observacaoTableColumn" prefWidth="75.0" text="Observação" />
         </columns>

@@ -551,8 +551,9 @@ public class MovimentacaoController {
 
             if (diferenca < 0){
                 exibirMensagem("A data fim não pode ser menor que a data inicio, revise seus dados!");
+                return false;
             }
-            return false;
+
 
         } else if (dataFimDatePicker.getValue() == null){
             return true;
