@@ -10,7 +10,7 @@ public class MovimentacaoDAO {
         Conexao con = new Conexao();
 
         String sql = "INSERT into movimentacao (dt_registro, setor_id, atividade, assunto," +
-                "processo, orgao_id, local_id, dt_inicio, dt_fim, hr_inicio, hr_fim, conclusao, observacao, usuario)"
+                "processo, orgao_id, local_id, dt_inicio, dt_fim, tempo_atividade, conclusao, observacao, usuario)"
                 + " VALUES('"
                 + movimentacao.getDataRegistro()
                 + "', '" + movimentacao.getSetor().getId()
@@ -21,9 +21,8 @@ public class MovimentacaoDAO {
                 + "', '" + movimentacao.getLocal().getId()
                 + "', '" + movimentacao.getDataInicio()
                 + "', " + (movimentacao.getDataFim() == null ? null : "'" + movimentacao.getDataFim() + "'")
-                + ", '" + movimentacao.getHoraInicio()
-                + "', " + (movimentacao.getHoraFim() == null ? null : "'" + movimentacao.getHoraFim() + "'")
-                + ", '" + movimentacao.getConclusao()
+                + ", '" + movimentacao.getTempoAtividade()
+                + "', '" + movimentacao.getConclusao()
                 + "', '" + movimentacao.getObervação()
                 + "', '" + movimentacao.getUsuario()
                 + "');";
@@ -56,8 +55,8 @@ public class MovimentacaoDAO {
                 + "', local_id = '" + mov.getLocal().getId()
                 + "', dt_inicio = '" + mov.getDataInicio()
                 + "', dt_fim = '" + mov.getDataFim()
-                + "', hr_inicio = '" + mov.getHoraInicio()
-                + "', hr_fim = '" + mov.getHoraFim()
+                //+ "', hr_inicio = '" + mov.getHoraInicio()
+                + "', tempo_atividade = '" + mov.getTempoAtividade()
                 + "', conclusao = '" + mov.getConclusao()
                 + "', observacao = '" + mov.getObervação()
                 + "' WHERE id = '" + mov.getId() + "'";

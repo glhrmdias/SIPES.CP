@@ -45,7 +45,7 @@ public class MovimentacaoController {
     @FXML
     public ComboBox<String> atividadeComboBox, assuntoComboBox,
                     horaInicioComboBox, horaFimComboBox,
-                    conclusaoComboBox;
+                    conclusaoComboBox, tempoComboBox;
 
     @FXML
     public ComboBox<Setor> setorComboBox;
@@ -83,8 +83,8 @@ public class MovimentacaoController {
         localidadeComboBox.setValue(movimentacao.getLocal());
         dataInicioDatePicker.setValue(movimentacao.getDataInicio());
         dataFimDatePicker.setValue(movimentacao.getDataFim());
-        horaInicioComboBox.setValue(movimentacao.getHoraInicio());
-        horaFimComboBox.setValue(movimentacao.getHoraFim());
+        //horaInicioComboBox.setValue(movimentacao.getHoraInicio());
+        tempoComboBox.setValue(movimentacao.getTempoAtividade());
         conclusaoComboBox.setValue(movimentacao.getConclusao());
         observacaoTextField.setText(movimentacao.getObervação());
     }
@@ -101,8 +101,8 @@ public class MovimentacaoController {
         localidadeComboBox.setItems(localidades);
         localidades.addAll(bd.getLocal());
 
-        horaInicioComboBox.setItems(horario);
-        horaFimComboBox.setItems(horario);
+        //horaInicioComboBox.setItems(horario);
+        tempoComboBox.setItems(tempo);
 
         /*definirAssunto();*/
 
@@ -481,9 +481,8 @@ public class MovimentacaoController {
         });
     }
 
-    ObservableList<String> horario = FXCollections.observableArrayList(
-            "12:00", "12:30","13:00","13:30", "14:00","14:30", "15:00","15:30", "16:00",
-            "16:30", "17:00","17:30", "18:00","18:30", "19:00"
+    ObservableList<String> tempo = FXCollections.observableArrayList(
+            "10 minutos", "30 minutos", "1 hora", "3 horas", "5 horas", "7 horas", "Indefinido"
     );
 
     ObservableList<String> conclusao = FXCollections.observableArrayList(
@@ -520,8 +519,8 @@ public class MovimentacaoController {
         movimentacao.setLocal(localidadeComboBox.getValue());
         movimentacao.setDataInicio(dataInicioDatePicker.getValue());
         movimentacao.setDataFim(dataFimDatePicker.getValue());
-        movimentacao.setHoraInicio(horaInicioComboBox.getValue());
-        movimentacao.setHoraFim(horaFimComboBox.getValue());
+        //movimentacao.setHoraInicio(horaInicioComboBox.getValue());
+        movimentacao.setTempoAtividade(tempoComboBox.getValue());
         movimentacao.setConclusao(conclusaoComboBox.getValue());
         movimentacao.setObervação(observacaoTextField.getText());
         movimentacao.setUsuario(usrTextField.getText());
@@ -594,10 +593,10 @@ public class MovimentacaoController {
             return false;
         }*/
 
-        if (horaInicioComboBox.getValue() == null){
+        /*if (horaInicioComboBox.getValue() == null){
             //JOptionPane.showMessageDialog(null, "Data menor que o validado");
             return false;
-        }
+        }*/
 
         /*if (horaFimComboBox.getValue() == null){
             //JOptionPane.showMessageDialog(null, "Data menor que o validado");

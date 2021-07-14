@@ -346,8 +346,8 @@ public class BD {
                     int localId = resultSet.getInt("local_id");
                     LocalDate dtInicio = resultSet.getDate("dt_inicio").toLocalDate();
                     LocalDate dtFim = resultSet.getDate("dt_fim") == null ? null : resultSet.getDate("dt_fim").toLocalDate();
-                    String hrInicio = resultSet.getString("hr_inicio");
-                    String hrFim = resultSet.getString("hr_fim") == null ? null : resultSet.getString("hr_fim");
+                    //String hrInicio = resultSet.getString("hr_inicio");
+                    String tempoAtv = resultSet.getString("tempo_atividade") == null ? null : resultSet.getString("tempo_atividade");
                     String conclusao = resultSet.getString("conclusao");
                     String observacao = resultSet.getString("observacao");
                     String usuario = resultSet.getString("usuario");
@@ -362,8 +362,7 @@ public class BD {
                     movi.setLocal(mapLocal.get(localId));
                     movi.setDataInicio(dtInicio);
                     movi.setDataFim(dtFim);
-                    movi.setHoraInicio(hrInicio);
-                    movi.setHoraFim(hrFim);
+                    movi.setTempoAtividade(tempoAtv);
                     movi.setConclusao(conclusao);
                     movi.setObervação(observacao);
                     movi.setUsuario(usuario);

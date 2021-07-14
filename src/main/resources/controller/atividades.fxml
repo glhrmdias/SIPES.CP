@@ -62,16 +62,11 @@
             <Font name="System Bold" size="12.0" />
          </font></Label>
       <DatePicker fx:id="dataFimDatePicker" layoutX="361.0" layoutY="497.0" style="-fx-background-color: WHITE; -fx-border-color: #74b9ff;" />
-      <Label layoutX="67.0" layoutY="533.0" text="HORA INÍCIO">
+      <Label layoutX="67.0" layoutY="533.0" text="TEMPO DA ATIVIDADE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <ComboBox fx:id="horaInicioComboBox" layoutX="66.0" layoutY="550.0" prefHeight="25.0" prefWidth="164.0" style="-fx-background-color: WHITE; -fx-border-color: #74b9ff;" />
-      <Label layoutX="364.0" layoutY="533.0" text="HORA FIM">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Label>
-      <ComboBox fx:id="horaFimComboBox" layoutX="362.0" layoutY="550.0" prefHeight="25.0" prefWidth="174.0" style="-fx-background-color: WHITE; -fx-border-color: #74b9ff;" />
+      <ComboBox fx:id="tempoComboBox" layoutX="66.0" layoutY="550.0" prefHeight="27.0" prefWidth="466.0" style="-fx-background-color: WHITE; -fx-border-color: #74b9ff;" />
       <Label layoutX="67.0" layoutY="583.0" text="CONCLUSÃO">
          <font>
             <Font name="System Bold" size="12.0" />

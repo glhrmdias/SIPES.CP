@@ -70,7 +70,7 @@ public class PrincipalController {
 
     @FXML
     public TableColumn<Movimentacao, String> nomeTableColumn, atividadeTableColumn,
-            conclusaoTableColumn, observacaoTableColumn, assuntoTableColumn;
+            conclusaoTableColumn, observacaoTableColumn, assuntoTableColumn, tempoTableColumn;
 
     @FXML
     public TableColumn<Movimentacao, Orgao> orgaoTableColumn;
@@ -146,6 +146,10 @@ public class PrincipalController {
 
         observacaoTableColumn.setCellValueFactory(param -> {
             return new SimpleObjectProperty(param.getValue().getObervação());
+        });
+
+        tempoTableColumn.setCellValueFactory(param -> {
+            return new SimpleObjectProperty(param.getValue().getTempoAtividade());
         });
 
         orgaoTableColumn.setCellValueFactory(param -> {

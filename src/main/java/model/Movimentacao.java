@@ -19,6 +19,15 @@ public class Movimentacao {
     public String conclusao;
     public String obervação;
     public String usuario;
+    public String tempoAtividade;
+
+    public String getTempoAtividade() {
+        return tempoAtividade;
+    }
+
+    public void setTempoAtividade(String tempoAtividade) {
+        this.tempoAtividade = tempoAtividade;
+    }
 
     public int getId() {
         return id;
